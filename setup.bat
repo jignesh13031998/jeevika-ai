@@ -8,8 +8,40 @@ echo   JeevikaAI - Free Indian Health Report AI Translator
 echo ============================================================
 echo.
 
-:: ── 1. Check Node.js ────────────────────────────────────────
-echo [1/4] Checking Node.js...
+:: ── 1. Python virtual environment ───────────────────────────
+echo [1/5] Setting up Python virtual environment...
+where python >nul 2>&1
+if %errorlevel% neq 0 (
+    echo   Python not found — skipping venv setup.
+) else (
+    if not exist venv (
+        echo   Creating venv...
+        python -m venv venv
+        if %errorlevel% neq 0 (
+            echo   WARNING: Failed to create venv. Continuing without it.
+            goto :skip_venv
+        )
+        echo   venv created.
+    ) else (
+        echo   venv already exists.
+    )
+    call venv\Scripts\activate
+    echo   venv activated.
+    if exist requirements.txt (
+        echo   Installing Python dependencies...
+        pip install -r requirements.txt --quiet
+        if %errorlevel% neq 0 (
+            echo   WARNING: pip install failed. Check requirements.txt and try again.
+        ) else (
+            echo   Python dependencies installed.
+        )
+    )
+)
+:skip_venv
+
+:: ── 2. Check Node.js ────────────────────────────────────────
+echo.
+echo [2/5] Checking Node.js...
 where node >nul 2>&1
 if %errorlevel% neq 0 (
     echo.
@@ -34,7 +66,7 @@ echo   Node.js found: v%NODE_MAJOR% (OK)
 
 :: ── 2. Install dependencies ──────────────────────────────────
 echo.
-echo [2/4] Installing npm dependencies...
+echo [3/5] Installing npm dependencies...
 call npm install
 if %errorlevel% neq 0 (
     echo.
@@ -47,7 +79,7 @@ echo   Dependencies installed successfully.
 
 :: ── 3. Set up .env file ──────────────────────────────────────
 echo.
-echo [3/4] Setting up environment variables...
+echo [4/5] Setting up environment variables...
 if exist .env (
     echo   .env file already exists — skipping copy.
 ) else (
@@ -80,7 +112,7 @@ if %errorlevel% equ 0 (
 
 :: ── 4. Start dev server ──────────────────────────────────────
 echo.
-echo [4/4] Ready to launch!
+echo [5/5] Ready to launch!
 echo.
 echo   Available commands:
 echo     npm run dev      - Start development server (http://localhost:5173)
