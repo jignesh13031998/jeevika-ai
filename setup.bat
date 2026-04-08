@@ -87,20 +87,31 @@ if exist .env (
         copy env.example .env >nul
         echo   Created .env from env.example.
     ) else (
-        echo VITE_GEMINI_API_KEY=YOUR_GEMINI_API_KEY_HERE> .env
+        (echo # Google Gemini -- free key at https://aistudio.google.com
+         echo VITE_GEMINI_API_KEY=YOUR_GEMINI_API_KEY_HERE
+         echo.
+         echo # Anthropic Claude -- key at https://console.anthropic.com
+         echo VITE_ANTHROPIC_API_KEY=YOUR_ANTHROPIC_API_KEY_HERE) > .env
         echo   Created a blank .env file.
     )
 )
 
-:: Check if the API key has been set
+:: Check if any placeholder keys remain
+set NEED_KEYS=0
 findstr /c:"YOUR_GEMINI_API_KEY_HERE" .env >nul 2>&1
-if %errorlevel% equ 0 (
+if %errorlevel% equ 0 set NEED_KEYS=1
+findstr /c:"YOUR_ANTHROPIC_API_KEY_HERE" .env >nul 2>&1
+if %errorlevel% equ 0 set NEED_KEYS=1
+
+if "!NEED_KEYS!"=="1" (
     echo.
-    echo   *** ACTION REQUIRED ***
-    echo   Open .env in a text editor and replace:
-    echo     VITE_GEMINI_API_KEY=YOUR_GEMINI_API_KEY_HERE
-    echo   with your free Gemini API key from:
-    echo     https://aistudio.google.com
+    echo   *** ACTION REQUIRED — API Keys ***
+    echo   At least one key is still a placeholder. Edit .env and fill in:
+    echo.
+    echo     VITE_GEMINI_API_KEY    — free at aistudio.google.com (Gemini provider)
+    echo     VITE_ANTHROPIC_API_KEY — paid at console.anthropic.com (Claude provider)
+    echo.
+    echo   You only need ONE key to run the app; add both to use either provider.
     echo.
     set /p OPEN_ENV="   Open .env now for editing? [Y/N]: "
     if /i "!OPEN_ENV!"=="Y" (

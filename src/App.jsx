@@ -2,6 +2,8 @@ import { useState, useRef } from "react";
 
 const GEMINI_API_KEY = import.meta.env?.VITE_GEMINI_API_KEY || "";
 const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_API_KEY}`;
+const ANTHROPIC_API_KEY = import.meta.env?.VITE_ANTHROPIC_API_KEY || "";
+const CLAUDE_MODEL = "claude-opus-4-6";
 
 const C = {
   bg:"#07071a",card:"#0e0e2a",border:"#1e1e45",teal:"#00d4aa",purple:"#7c3aed",
@@ -77,6 +79,7 @@ function UploadZone({onFile,file,onClear}){
 
 export default function App(){
   const[mode,setMode]=useState("upload");
+  const[provider,setProvider]=useState("gemini");
   const[text,setText]=useState(SAMPLE);
   const[file,setFile]=useState(null);
   const[preview,setPreview]=useState(null);
@@ -86,35 +89,83 @@ export default function App(){
   const[error,setError]=useState(null);
   const[speaking,setSpeaking]=useState(false);
 
-  const noKey=!GEMINI_API_KEY||GEMINI_API_KEY==="YOUR_GEMINI_API_KEY_HERE";
+  const noGeminiKey=!GEMINI_API_KEY||GEMINI_API_KEY==="YOUR_GEMINI_API_KEY_HERE";
+  const noClaudeKey=!ANTHROPIC_API_KEY||ANTHROPIC_API_KEY==="YOUR_ANTHROPIC_API_KEY_HERE";
+  const noKey=provider==="gemini"?noGeminiKey:noClaudeKey;
 
   function handleFile(f){
     setFile(f);setResult(null);setError(null);
     if(f.type.startsWith("image/")){setPreview(URL.createObjectURL(f));}else{setPreview(null);}
   }
 
+  async function analyzeWithGemini(){
+    let parts=[];
+    if(mode==="upload"&&file){
+      setLoadMsg("📂 Reading your file...");
+      const b64=await toBase64(file);
+      setLoadMsg("🧠 Gemini AI reading report...");
+      parts=[{inline_data:{mime_type:file.type,data:b64}},{text:PROMPT+"\n\nAnalyze the lab report shown."}];
+    }else{
+      setLoadMsg("🧠 Analyzing text...");
+      parts=[{text:PROMPT+"\n\nReport:\n"+text}];
+    }
+    setLoadMsg("⚙️ Generating insights...");
+    const res=await fetch(GEMINI_URL,{method:"POST",headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({contents:[{parts}],generationConfig:{temperature:0.3,maxOutputTokens:2000}})});
+    const data=await res.json();
+    if(data.error)throw new Error(data.error.message);
+    const raw=data.candidates?.[0]?.content?.parts?.[0]?.text||"";
+    const match=raw.replace(/```json|```/g,"").match(/\{[\s\S]*\}/);
+    if(!match)throw new Error("Could not parse AI response.");
+    setResult(JSON.parse(match[0]));
+  }
+
+  async function analyzeWithClaude(){
+    let content=[];
+    if(mode==="upload"&&file){
+      setLoadMsg("📂 Reading your file...");
+      const b64=await toBase64(file);
+      setLoadMsg("🧠 Claude AI reading report...");
+      if(file.type==="application/pdf"){
+        content=[
+          {type:"document",source:{type:"base64",media_type:"application/pdf",data:b64}},
+          {type:"text",text:PROMPT+"\n\nAnalyze the lab report in the document."}
+        ];
+      }else{
+        content=[
+          {type:"image",source:{type:"base64",media_type:file.type,data:b64}},
+          {type:"text",text:PROMPT+"\n\nAnalyze the lab report shown in the image."}
+        ];
+      }
+    }else{
+      setLoadMsg("🧠 Analyzing text...");
+      content=[{type:"text",text:PROMPT+"\n\nReport:\n"+text}];
+    }
+    setLoadMsg("⚙️ Generating insights...");
+    const res=await fetch("https://api.anthropic.com/v1/messages",{
+      method:"POST",
+      headers:{
+        "x-api-key":ANTHROPIC_API_KEY,
+        "anthropic-version":"2023-06-01",
+        "anthropic-dangerous-direct-browser-access":"true",
+        "anthropic-beta":"pdfs-2024-09-25",
+        "content-type":"application/json"
+      },
+      body:JSON.stringify({model:CLAUDE_MODEL,max_tokens:2000,thinking:{type:"adaptive"},messages:[{role:"user",content}]})
+    });
+    const data=await res.json();
+    if(data.error)throw new Error(data.error.message||data.error.type);
+    const raw=data.content?.find(b=>b.type==="text")?.text||"";
+    const match=raw.replace(/```json|```/g,"").match(/\{[\s\S]*\}/);
+    if(!match)throw new Error("Could not parse AI response.");
+    setResult(JSON.parse(match[0]));
+  }
+
   async function analyze(){
     setLoading(true);setError(null);setResult(null);
     try{
-      let parts=[];
-      if(mode==="upload"&&file){
-        setLoadMsg("📂 Reading your file...");
-        const b64=await toBase64(file);
-        setLoadMsg("🧠 Gemini AI reading report...");
-        parts=[{inline_data:{mime_type:file.type,data:b64}},{text:PROMPT+"\n\nAnalyze the lab report shown."}];
-      }else{
-        setLoadMsg("🧠 Analyzing text...");
-        parts=[{text:PROMPT+"\n\nReport:\n"+text}];
-      }
-      setLoadMsg("⚙️ Generating insights...");
-      const res=await fetch(GEMINI_URL,{method:"POST",headers:{"Content-Type":"application/json"},
-        body:JSON.stringify({contents:[{parts}],generationConfig:{temperature:0.3,maxOutputTokens:2000}})});
-      const data=await res.json();
-      if(data.error)throw new Error(data.error.message);
-      const raw=data.candidates?.[0]?.content?.parts?.[0]?.text||"";
-      const match=raw.replace(/```json|```/g,"").match(/\{[\s\S]*\}/);
-      if(!match)throw new Error("Could not parse AI response.");
-      setResult(JSON.parse(match[0]));
+      if(provider==="claude")await analyzeWithClaude();
+      else await analyzeWithGemini();
     }catch(e){setError(e.message);}
     setLoading(false);setLoadMsg("");
   }
@@ -147,18 +198,46 @@ export default function App(){
           <span style={{fontSize:22,fontWeight:800,color:C.white}}>Jeevika<span style={{color:C.teal}}>AI</span></span>
           <span style={{background:"rgba(0,212,170,.15)",border:`1px solid rgba(0,212,170,.3)`,color:C.teal,fontSize:10,fontWeight:700,padding:"3px 10px",borderRadius:20,letterSpacing:1}}>FREE & OPEN SOURCE</span>
         </div>
-        <div style={{fontSize:11,color:C.muted,background:C.purpleDim,padding:"5px 12px",borderRadius:20}}>⚡ Gemini 2.0 Flash · Free</div>
+        <div style={{display:"flex",gap:6,alignItems:"center",flexWrap:"wrap"}}>
+          <div style={{fontSize:11,color:C.muted,background:C.purpleDim,padding:"5px 12px",borderRadius:20}}>
+            {provider==="claude"?`✦ Claude Opus 4.6`:"⚡ Gemini 2.0 Flash · Free"}
+          </div>
+          <div style={{display:"flex",gap:2,background:"#05050f",border:`1px solid ${C.border}`,borderRadius:20,padding:3}}>
+            {[["gemini","⚡ Gemini"],["claude","✦ Claude"]].map(([p,label])=>(
+              <button key={p} onClick={()=>{setProvider(p);setResult(null);setError(null);}}
+                style={{padding:"3px 10px",borderRadius:16,border:"none",cursor:"pointer",fontSize:11,fontWeight:700,fontFamily:"inherit",
+                  background:provider===p?(p==="claude"?C.purple:C.teal):"transparent",
+                  color:provider===p?C.white:C.muted}}>
+                {label}
+              </button>
+            ))}
+          </div>
+        </div>
       </div>
 
       {/* NO KEY WARNING */}
       {noKey&&<div style={{padding:"16px 20px",background:"rgba(245,158,11,.08)",border:`1px solid rgba(245,158,11,.3)`,borderRadius:12,marginBottom:18}}>
-        <div style={{fontSize:14,fontWeight:700,color:C.warning,marginBottom:6}}>⚠️ Add Your Free Gemini API Key</div>
-        <div style={{fontSize:12,color:C.text,lineHeight:1.9}}>
-          1. Go to <strong style={{color:C.teal}}>aistudio.google.com</strong> → Sign in with Google<br/>
-          2. Click <strong>"Get API Key"</strong> → Create key → Copy (starts with AIza...)<br/>
-          3. In .env file: <code style={{color:C.teal}}>VITE_GEMINI_API_KEY=AIza...</code><br/>
-          4. Restart: <code style={{color:C.teal}}>npm run dev</code> — 100% free, no credit card
-        </div>
+        {provider==="claude"?(
+          <>
+            <div style={{fontSize:14,fontWeight:700,color:C.warning,marginBottom:6}}>⚠️ Add Your Anthropic API Key</div>
+            <div style={{fontSize:12,color:C.text,lineHeight:1.9}}>
+              1. Go to <strong style={{color:C.teal}}>console.anthropic.com</strong> → Sign up / Log in<br/>
+              2. Navigate to <strong>"API Keys"</strong> → Create key → Copy<br/>
+              3. In .env file: <code style={{color:C.teal}}>VITE_ANTHROPIC_API_KEY=sk-ant-...</code><br/>
+              4. Restart: <code style={{color:C.teal}}>npm run dev</code>
+            </div>
+          </>
+        ):(
+          <>
+            <div style={{fontSize:14,fontWeight:700,color:C.warning,marginBottom:6}}>⚠️ Add Your Free Gemini API Key</div>
+            <div style={{fontSize:12,color:C.text,lineHeight:1.9}}>
+              1. Go to <strong style={{color:C.teal}}>aistudio.google.com</strong> → Sign in with Google<br/>
+              2. Click <strong>"Get API Key"</strong> → Create key → Copy (starts with AIza...)<br/>
+              3. In .env file: <code style={{color:C.teal}}>VITE_GEMINI_API_KEY=AIza...</code><br/>
+              4. Restart: <code style={{color:C.teal}}>npm run dev</code> — 100% free, no credit card
+            </div>
+          </>
+        )}
       </div>}
 
       {/* INPUT CARD */}
