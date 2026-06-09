@@ -3,67 +3,61 @@ import { Signal } from '../lib/types'
 import { getHeroItems } from '../lib/filtering'
 import { categoryLabel, formatDate } from '../lib/scoring-display'
 
-interface Props {
-  signals: Signal[]
-}
+interface Props { signals: Signal[] }
 
 export default function ImpactBoard({ signals }: Props) {
   const hero = getHeroItems(signals)
 
   return (
     <section className="max-w-[1600px] mx-auto px-4 py-6 print-break">
-      <div className="flex items-baseline gap-3 mb-4">
-        <h2 className="font-display text-2xl font-semibold text-stone-100">Executive Impact Analysis</h2>
-        <span className="text-sm text-stone-500">print-ready · top {hero.length} events</span>
+      <div className="section-header flex items-baseline gap-3">
+        <h2 className="font-display text-3xl font-bold" style={{ color: '#8E1B2E' }}>Executive Impact Analysis</h2>
+        <span className="text-sm" style={{ color: '#9E7A82' }}>print-ready board view — top {hero.length} priority events</span>
       </div>
 
       <div className="space-y-4">
         {hero.map((sig, i) => (
-          <div key={sig.id} className="bg-surface rounded-xl border border-border p-6">
-            <div className="flex items-start gap-4 mb-4">
-              <div className="flex-shrink-0 w-8 h-8 rounded-full bg-accent-primary/20 border border-accent-primary/40 flex items-center justify-center">
-                <span className="font-display text-accent-secondary font-bold">{i + 1}</span>
+          <div key={sig.id} className="card rounded-xl overflow-hidden">
+            {/* Event header */}
+            <div className="px-6 py-4 flex items-start gap-4"
+              style={{ background: `linear-gradient(135deg, #8E1B2E 0%, #6B1422 100%)` }}>
+              <div className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0"
+                style={{ background: 'rgba(255,255,255,0.2)', color: 'white' }}>
+                <span className="font-display font-bold">{i + 1}</span>
               </div>
-              <div>
-                <div className="text-[10px] text-stone-500 uppercase tracking-wide">{sig.brand} · Tier {sig.tier} · {categoryLabel(sig.category)}</div>
-                <h3 className="font-display text-xl font-semibold text-stone-100 mt-1">{sig.headline}</h3>
-                <div className="text-xs text-stone-600 mt-1">
-                  <a
-                    href={sig.source.url_original || sig.source.url_fallback}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:text-accent-secondary underline"
-                  >
-                    {sig.source.publisher}
-                  </a>
-                  {' · '}{formatDate(sig.published_at)} · {sig.confidence_label} confidence
+              <div className="flex-1">
+                <div className="flex items-center gap-2 flex-wrap mb-1">
+                  <span className="text-white font-bold text-sm">{sig.brand}</span>
+                  <span className="text-[10px] px-2 py-0.5 rounded-full" style={{ background: 'rgba(255,255,255,0.2)', color: 'white' }}>
+                    Tier {sig.tier}
+                  </span>
+                  <span className="text-[10px] px-2 py-0.5 rounded-full" style={{ background: 'rgba(255,255,255,0.2)', color: 'white' }}>
+                    {categoryLabel(sig.category)}
+                  </span>
+                  {sig.geo.state && (
+                    <span className="text-[10px]" style={{ color: 'rgba(255,255,255,0.7)' }}>📍 {sig.geo.state}</span>
+                  )}
+                </div>
+                <a href={sig.source.url_original} target="_blank" rel="noopener noreferrer"
+                  className="font-display text-xl font-semibold text-white hover:underline leading-snug">
+                  {sig.headline}
+                </a>
+                <div className="mt-1 text-[11px]" style={{ color: 'rgba(255,255,255,0.6)' }}>
+                  {sig.source.publisher} · {formatDate(sig.published_at)} · {sig.confidence_label} confidence
                 </div>
               </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
-              <ImpactCell
-                label="What Happened"
-                text={sig.analysis?.what_happened ?? sig.summary_2line}
-                labelColor="text-stone-500"
-              />
-              <ImpactCell
-                label="Why It Matters to KISNA"
-                text={sig.analysis?.why_it_matters_to_kisna ?? '—'}
-                labelColor="text-accent-primary"
-                highlight
-              />
-              <ImpactCell
-                label="Possible Impact on KISNA"
-                text={sig.analysis?.possible_impact ?? '—'}
-                labelColor="text-prio-high"
-              />
-              <ImpactCell
-                label="Suggested Action"
-                text={sig.analysis?.suggested_action ?? '—'}
-                labelColor="text-accent-secondary"
-                action
-              />
+            {/* 4-block analysis */}
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4">
+              <ImpactCell num={1} label="What Happened" text={sig.analysis?.what_happened ?? sig.summary_2line}
+                accent="#F3EDE8" labelColor="#9E7A82" />
+              <ImpactCell num={2} label="Why It Matters to KISNA" text={sig.analysis?.why_it_matters_to_kisna ?? '—'}
+                accent="#FFF5F5" labelColor="#8E1B2E" />
+              <ImpactCell num={3} label="Possible Impact on KISNA" text={sig.analysis?.possible_impact ?? '—'}
+                accent="#FFFBEB" labelColor="#D97706" />
+              <ImpactCell num={4} label="Suggested Action" text={sig.analysis?.suggested_action ?? '—'}
+                accent="#ECFDF5" labelColor="#059669" />
             </div>
           </div>
         ))}
@@ -72,13 +66,17 @@ export default function ImpactBoard({ signals }: Props) {
   )
 }
 
-function ImpactCell({ label, text, labelColor, highlight, action }: {
-  label: string; text: string; labelColor: string; highlight?: boolean; action?: boolean
+function ImpactCell({ num, label, text, accent, labelColor }: {
+  num: number; label: string; text: string; accent: string; labelColor: string
 }) {
   return (
-    <div className={`p-4 rounded-lg ${highlight ? 'border border-accent-primary/30 bg-accent-primary/5' : action ? 'border border-accent-secondary/30 bg-accent-secondary/5' : 'border border-border bg-surface-2'}`}>
-      <div className={`text-[10px] font-semibold uppercase tracking-wide mb-2 ${labelColor}`}>{label}</div>
-      <p className="text-xs text-stone-300 leading-relaxed">{text}</p>
+    <div className="p-4 border-t md:border-t-0 md:border-l first:border-l-0" style={{ background: accent, borderColor: '#E2D5CC' }}>
+      <div className="flex items-center gap-2 mb-2">
+        <span className="w-5 h-5 rounded-full text-[10px] font-bold flex items-center justify-center text-white"
+          style={{ background: labelColor }}>{num}</span>
+        <div className="text-[10px] font-bold uppercase tracking-wide" style={{ color: labelColor }}>{label}</div>
+      </div>
+      <p className="text-xs leading-relaxed" style={{ color: '#1A0A0D' }}>{text}</p>
     </div>
   )
 }

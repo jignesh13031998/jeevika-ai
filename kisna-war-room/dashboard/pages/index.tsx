@@ -91,7 +91,7 @@ export default function Home() {
         <meta name="robots" content="noindex,nofollow" />
       </Head>
 
-      <div className="min-h-screen bg-canvas hero-glow">
+      <div className="min-h-screen" style={{ background: '#F7F2EE' }}>
         <Header
           data={dataset}
           lastRefresh={lastRefresh}
@@ -107,13 +107,14 @@ export default function Home() {
           brands={brands}
           categories={categories}
           regions={regions}
+          totalCount={filtered.length}
           onFilter={handleFilter}
         />
 
         {/* Error state */}
         {error && (
           <div className="max-w-[1600px] mx-auto px-4 py-4">
-            <div className="bg-prio-critical/10 border border-prio-critical/30 rounded p-4 text-prio-critical text-sm">
+            <div className="rounded p-4 text-sm" style={{ background: '#FEE2E2', border: '1px solid #FCA5A5', color: '#991B1B' }}>
               {error}
               <button onClick={fetchData} className="ml-4 underline text-xs">Retry</button>
             </div>
@@ -123,7 +124,7 @@ export default function Home() {
         {/* Loading skeleton */}
         {!dataset && !error && (
           <div className="max-w-[1600px] mx-auto px-4 py-12 text-center text-stone-500">
-            <div className="font-display text-2xl text-stone-600 animate-pulse">Loading intelligence…</div>
+            <div className="font-display text-2xl animate-pulse" style={{ color: '#C9B8AD' }}>Loading intelligence…</div>
           </div>
         )}
 

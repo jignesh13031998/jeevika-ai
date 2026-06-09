@@ -1,10 +1,14 @@
 import React from 'react'
 import { Signal } from '../lib/types'
 import { getHeroItems, getWatchIndicators, getActionOfDay } from '../lib/filtering'
-import { bandColor, categoryLabel, formatDate } from '../lib/scoring-display'
+import { categoryLabel, formatDate } from '../lib/scoring-display'
 
-interface Props {
-  signals: Signal[]
+interface Props { signals: Signal[] }
+
+const BAND_STYLES: Record<string, { bg: string; text: string; border: string; dot: string }> = {
+  HIGH:   { bg: '#FEE2E2', text: '#991B1B', border: '#FCA5A5', dot: '#C41E3A' },
+  MEDIUM: { bg: '#FEF3C7', text: '#92400E', border: '#FCD34D', dot: '#D97706' },
+  LOW:    { bg: '#D1FAE5', text: '#065F46', border: '#6EE7B7', dot: '#059669' },
 }
 
 export default function ExecBriefing({ signals }: Props) {
@@ -13,138 +17,127 @@ export default function ExecBriefing({ signals }: Props) {
   const watch = getWatchIndicators(signals, heroIds)
   const action = getActionOfDay(hero)
   const threats = signals.filter(s => s.flags.includes('THREAT_ALERT'))
-  const opps = signals.filter(s => s.flags.includes('OPPORTUNITY_ALERT'))
+  const opps   = signals.filter(s => s.flags.includes('OPPORTUNITY_ALERT'))
 
   return (
     <section className="max-w-[1600px] mx-auto px-4 py-6">
-      {/* Section header */}
-      <div className="flex items-baseline gap-3 mb-6">
-        <h2 className="font-display text-3xl font-semibold text-stone-100">Executive Briefing</h2>
-        <span className="text-sm text-stone-500">3-minute CMO overview</span>
+      <div className="section-header flex items-baseline gap-3">
+        <h2 className="font-display text-3xl font-bold" style={{ color: '#8E1B2E' }}>Executive Briefing</h2>
+        <span className="text-sm" style={{ color: '#9E7A82' }}>Your 3-minute CMO read — {signals.length} signals this week</span>
       </div>
 
-      <div className="bg-surface rounded-xl border border-border p-6">
-        <p className="text-stone-300 text-sm mb-6">
-          <span className="font-semibold text-stone-100">{hero.length} significant developments</span> in the last 7 days across {new Set(signals.map(s => s.brand)).size} tracked competitors.
-        </p>
+      <div className="grid grid-cols-1 xl:grid-cols-3 gap-4">
 
-        {/* Key Observations */}
-        <div className="mb-6">
-          <h3 className="font-display text-xl font-semibold text-accent-secondary mb-3">Key Observations</h3>
+        {/* Key observations — left 2 cols */}
+        <div className="xl:col-span-2 card rounded-xl p-5">
+          <div className="flex items-center gap-2 mb-4">
+            <span className="font-display text-xl font-semibold" style={{ color: '#1A0A0D' }}>Key Observations</span>
+            <span className="text-xs px-2 py-0.5 rounded-full font-medium" style={{ background: '#FEE2E2', color: '#991B1B' }}>{hero.length} significant</span>
+          </div>
+
           <ol className="space-y-4">
-            {hero.map((sig, i) => (
-              <li key={sig.id} className="flex gap-3">
-                <span className="text-stone-500 font-display text-lg w-6 flex-shrink-0">{i + 1}.</span>
-                <div>
-                  <div className="flex items-center gap-2 mb-1 flex-wrap">
-                    <span
-                      className="w-2.5 h-2.5 rounded-full flex-shrink-0"
-                      style={{ backgroundColor: bandColor(sig.priority_band) }}
-                    />
-                    <span className="font-semibold text-stone-100">{sig.brand}</span>
-                    <span className="text-stone-400">—</span>
-                    <a
-                      href={sig.source.url_original || sig.source.url_fallback}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-stone-200 hover:text-accent-secondary text-sm underline underline-offset-2"
-                    >
-                      {sig.headline}
-                    </a>
-                  </div>
-                  {sig.analysis?.why_it_matters_to_kisna && (
-                    <div className="kisna-rail text-sm text-stone-400 italic">
-                      {sig.analysis.why_it_matters_to_kisna}
+            {hero.map((sig, i) => {
+              const bs = BAND_STYLES[sig.priority_band] ?? BAND_STYLES.LOW
+              return (
+                <li key={sig.id} className="flex gap-3 pb-4 border-b last:border-0 last:pb-0" style={{ borderColor: '#F3EDE8' }}>
+                  <span className="font-display text-2xl font-light w-7 flex-shrink-0" style={{ color: '#C9B8AD' }}>{i + 1}</span>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-start gap-2 mb-1 flex-wrap">
+                      <span className="w-2.5 h-2.5 rounded-full mt-1 flex-shrink-0" style={{ background: bs.dot }} />
+                      <a href={sig.source.url_original} target="_blank" rel="noopener noreferrer"
+                        className="font-semibold text-sm hover:underline" style={{ color: '#1A0A0D' }}>
+                        {sig.headline}
+                      </a>
                     </div>
-                  )}
-                  <div className="mt-1 text-xs text-stone-600">
-                    {categoryLabel(sig.category)} · {sig.source.publisher} · {formatDate(sig.published_at)} · {sig.confidence_label} confidence
+                    <div className="flex items-center gap-2 mb-2 flex-wrap">
+                      <span className="text-xs font-bold" style={{ color: '#8E1B2E' }}>{sig.brand}</span>
+                      <span className="text-[10px] px-1.5 py-0.5 rounded font-medium" style={{ background: bs.bg, color: bs.text, border: `1px solid ${bs.border}` }}>
+                        {sig.priority_band}
+                      </span>
+                      <span className="text-[10px]" style={{ color: '#9E7A82' }}>{categoryLabel(sig.category)}</span>
+                    </div>
+                    {sig.analysis?.why_it_matters_to_kisna && (
+                      <div className="kisna-rail text-xs italic py-1" style={{ color: '#5C3D45' }}>
+                        {sig.analysis.why_it_matters_to_kisna}
+                      </div>
+                    )}
+                    <div className="mt-1.5 text-[10px]" style={{ color: '#9E7A82' }}>
+                      <a href={sig.source.url_original} target="_blank" rel="noopener noreferrer"
+                        className="hover:underline font-medium" style={{ color: '#8E1B2E' }}>
+                        {sig.source.publisher}
+                      </a>
+                      {' · '}{formatDate(sig.published_at)} · {sig.confidence_label} confidence
+                    </div>
                   </div>
-                </div>
-              </li>
-            ))}
+                </li>
+              )
+            })}
           </ol>
         </div>
 
-        {/* Implications */}
-        {hero.some(s => s.analysis?.possible_impact) && (
-          <div className="mb-6">
-            <h3 className="font-display text-xl font-semibold text-accent-secondary mb-3">Potential Implications for KISNA</h3>
-            <ul className="space-y-2">
-              {hero.slice(0, 3).map(sig => sig.analysis?.possible_impact && (
-                <li key={sig.id} className="flex gap-2 text-sm">
-                  <span className="text-stone-600">▸</span>
-                  <span><span className="font-medium text-stone-200">{sig.brand}:</span> <span className="text-stone-400">{sig.analysis.possible_impact}</span></span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
+        {/* Right panel: alerts + action */}
+        <div className="flex flex-col gap-4">
 
-        {/* Risk Alerts */}
-        {threats.length > 0 && (
-          <div className="mb-6 p-4 rounded-lg border border-prio-critical/30 bg-prio-critical/5">
-            <h3 className="font-display text-lg font-semibold text-prio-critical mb-2">⚠ Risk Alerts</h3>
-            <ul className="space-y-1">
-              {threats.map(sig => (
-                <li key={sig.id} className="flex gap-2 text-sm items-start">
-                  <span className="text-prio-critical">●</span>
-                  <span>
-                    <span className="font-medium text-stone-200">{sig.brand}</span>{' — '}
-                    <a href={sig.source.url_original || sig.source.url_fallback} target="_blank" rel="noopener noreferrer" className="text-stone-300 hover:text-prio-critical underline">
-                      {sig.headline}
+          {/* Threat Alerts */}
+          <div className="card rounded-xl p-4" style={{ borderLeft: '4px solid #C41E3A' }}>
+            <div className="flex items-center gap-2 mb-3">
+              <span className="text-lg">⚠️</span>
+              <span className="font-semibold text-sm" style={{ color: '#991B1B' }}>Threat Alerts ({threats.length})</span>
+            </div>
+            {threats.length === 0 ? <p className="text-xs" style={{ color: '#9E7A82' }}>No active threat alerts.</p> :
+              <ul className="space-y-2">
+                {threats.slice(0, 4).map(sig => (
+                  <li key={sig.id} className="text-xs">
+                    <a href={sig.source.url_original} target="_blank" rel="noopener noreferrer"
+                      className="font-medium hover:underline" style={{ color: '#1A0A0D' }}>
+                      {sig.brand}
                     </a>
-                    <span className="text-stone-600 ml-1">(Threat: {sig.scores.threat})</span>
-                  </span>
-                </li>
-              ))}
-            </ul>
+                    <span style={{ color: '#5C3D45' }}> — {sig.headline.slice(0, 60)}…</span>
+                  </li>
+                ))}
+              </ul>
+            }
           </div>
-        )}
 
-        {/* Opportunities */}
-        {opps.length > 0 && (
-          <div className="mb-6 p-4 rounded-lg border border-prio-low/30 bg-prio-low/5">
-            <h3 className="font-display text-lg font-semibold text-prio-low mb-2">✓ Opportunities</h3>
-            <ul className="space-y-1">
-              {opps.map(sig => (
-                <li key={sig.id} className="flex gap-2 text-sm items-start">
-                  <span className="text-prio-low">●</span>
-                  <span>
-                    <span className="font-medium text-stone-200">{sig.brand}</span>{' — '}
-                    <a href={sig.source.url_original || sig.source.url_fallback} target="_blank" rel="noopener noreferrer" className="text-stone-300 hover:text-prio-low underline">
-                      {sig.headline}
-                    </a>
-                    <span className="text-stone-600 ml-1">(Opportunity: {sig.scores.opportunity})</span>
-                  </span>
-                </li>
-              ))}
-            </ul>
+          {/* Opportunities */}
+          <div className="card rounded-xl p-4" style={{ borderLeft: '4px solid #059669' }}>
+            <div className="flex items-center gap-2 mb-3">
+              <span className="text-lg">✅</span>
+              <span className="font-semibold text-sm" style={{ color: '#065F46' }}>Opportunities ({opps.length})</span>
+            </div>
+            {opps.length === 0 ? <p className="text-xs" style={{ color: '#9E7A82' }}>No opportunity alerts triggered.</p> :
+              <ul className="space-y-2">
+                {opps.map(sig => (
+                  <li key={sig.id} className="text-xs">
+                    <a href={sig.source.url_original} target="_blank" rel="noopener noreferrer"
+                      className="font-medium hover:underline" style={{ color: '#1A0A0D' }}>{sig.brand}</a>
+                    <span style={{ color: '#5C3D45' }}> — {sig.headline.slice(0, 60)}…</span>
+                  </li>
+                ))}
+              </ul>
+            }
           </div>
-        )}
 
-        {/* Watch indicators */}
-        {watch.length > 0 && (
-          <div className="mb-6">
-            <h3 className="font-display text-xl font-semibold text-accent-secondary mb-2">Recommended Executive Attention</h3>
-            <ul className="space-y-2">
-              {watch.map(sig => (
-                <li key={sig.id} className="flex gap-2 text-sm text-stone-400">
-                  <span className="text-accent-secondary">◎</span>
-                  <span>
-                    <span className="text-stone-300 font-medium">{sig.brand}</span> — {sig.headline}
-                    <span className="text-stone-600 ml-1">({categoryLabel(sig.category)})</span>
-                  </span>
-                </li>
-              ))}
-            </ul>
+          {/* Watch indicators */}
+          {watch.length > 0 && (
+            <div className="card rounded-xl p-4" style={{ borderLeft: '4px solid #0369A1' }}>
+              <div className="font-semibold text-sm mb-3" style={{ color: '#0369A1' }}>👁 Watch Closely</div>
+              <ul className="space-y-2">
+                {watch.map(sig => (
+                  <li key={sig.id} className="text-xs">
+                    <span className="font-medium" style={{ color: '#1A0A0D' }}>{sig.brand}</span>
+                    <span style={{ color: '#5C3D45' }}> — {sig.headline.slice(0, 65)}…</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          {/* Action of the day */}
+          <div className="card rounded-xl p-4" style={{ background: '#8E1B2E', border: 'none' }}>
+            <div className="text-[10px] uppercase tracking-widest font-bold mb-2" style={{ color: '#E8C98A' }}>⚡ Action of the Day</div>
+            <p className="text-sm font-semibold text-white leading-relaxed">{action}</p>
           </div>
-        )}
-
-        {/* Action of the day */}
-        <div className="p-4 rounded-lg border border-accent-secondary/30 bg-accent-secondary/5">
-          <div className="text-[10px] uppercase tracking-widest text-accent-secondary mb-1 font-semibold">⚡ Action of the Day</div>
-          <p className="text-stone-100 font-semibold text-sm">{action}</p>
         </div>
       </div>
     </section>
