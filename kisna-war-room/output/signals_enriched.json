@@ -1,0 +1,1243 @@
+{
+  "generated_at": "2026-06-09T06:22:00.520732+00:00",
+  "rolling_window_days": 7,
+  "total_signals": 25,
+  "signals": [
+    {
+      "id": "47536bfcfcd5c82d",
+      "schema_version": "1.0",
+      "ingested_at": "2026-06-09T06:22:00.491999+00:00",
+      "published_at": "2026-06-08T10:22:00.491999+00:00",
+      "freshness": "NEW",
+      "brand": "Tanishq",
+      "brand_aliases_matched": [
+        "Tanishq"
+      ],
+      "tier": 1,
+      "headline": "Tanishq launches lab grown diamond collection",
+      "summary_2line": "Tanishq Tanishq enters lab-grown diamond segment. Source: Mock Data — for demo purposes.",
+      "category": "LAB_GROWN_DIAMOND_MOVE",
+      "category_family": "B_PRODUCT_PRICING",
+      "classification_rationale": "Mock signal for category LAB_GROWN_DIAMOND_MOVE",
+      "geo": {
+        "region": null,
+        "state": null,
+        "city": "Bangalore",
+        "gcc": false
+      },
+      "source": {
+        "publisher": "Economic Times",
+        "url_original": "https://economictimes.indiatimes.com/mock/47536bfcfcd5c82d",
+        "url_fallback": "https://economictimes.indiatimes.com/mock/47536bfcfcd5c82d",
+        "reliability": "B",
+        "credibility": 2
+      },
+      "corroboration_count": 2,
+      "scores": {
+        "threat": 100.0,
+        "opportunity": 15.0,
+        "confidence": 59.3,
+        "cmo_salience": 88.0,
+        "composite_priority": 73.3
+      },
+      "flags": [],
+      "priority_band": "HIGH",
+      "analysis": {
+        "what_happened": "Tanishq made a move in the lab-grown diamond segment in Bangalore. (Tanishq launches lab grown diamond collection...)",
+        "why_it_matters_to_kisna": "Lab-grown pricing pressure directly challenges KISNA's natural-diamond positioning and consumer value perception.",
+        "possible_impact": "Tanishq's action in the lab grown diamond move space may affect KISNA's b product pricing landscape, particularly given their Tier 1 status.",
+        "suggested_action": "Convene a product-strategy session to define KISNA's lab-grown stance and prepare a CMO-approved holding statement."
+      },
+      "analysis_engine": "rules",
+      "last_verified_at": "2026-06-09T06:22:00.491999+00:00",
+      "confidence_label": "Medium"
+    },
+    {
+      "id": "36294985f9bd70a7",
+      "schema_version": "1.0",
+      "ingested_at": "2026-06-09T06:22:00.491999+00:00",
+      "published_at": "2026-06-09T06:22:00.491999+00:00",
+      "freshness": "NEW",
+      "brand": "Tanishq",
+      "brand_aliases_matched": [
+        "Tanishq"
+      ],
+      "tier": 1,
+      "headline": "Tanishq opens new flagship showroom in Mumbai",
+      "summary_2line": "Tanishq Tanishq has inaugurated a new showroom in Mumbai. Source: Mock Data — for demo purposes.",
+      "category": "STORE_OPENING",
+      "category_family": "C_RETAIL_EXPANSION",
+      "classification_rationale": "Mock signal for category STORE_OPENING",
+      "geo": {
+        "region": "West",
+        "state": "Maharashtra",
+        "city": "Mumbai",
+        "gcc": false
+      },
+      "source": {
+        "publisher": "Economic Times",
+        "url_original": "https://economictimes.indiatimes.com/mock/36294985f9bd70a7",
+        "url_fallback": "https://economictimes.indiatimes.com/mock/36294985f9bd70a7",
+        "reliability": "B",
+        "credibility": 2
+      },
+      "corroboration_count": 2,
+      "scores": {
+        "threat": 100.0,
+        "opportunity": 15.0,
+        "confidence": 65.9,
+        "cmo_salience": 75.0,
+        "composite_priority": 70.4
+      },
+      "flags": [
+        "THREAT_ALERT"
+      ],
+      "priority_band": "HIGH",
+      "analysis": {
+        "what_happened": "Tanishq opened a new store in Mumbai. (Tanishq opens new flagship showroom in Mumbai...)",
+        "why_it_matters_to_kisna": "Physical expansion increases competitor footprint and brand visibility, particularly relevant if in KISNA's overlap markets.",
+        "possible_impact": "Tanishq's action in the store opening space may affect KISNA's c retail expansion landscape, particularly given their Tier 1 status.",
+        "suggested_action": "Instruct the retail team to map the competitor's new location against KISNA's franchise pipeline and adjust city priorities if needed."
+      },
+      "analysis_engine": "rules",
+      "last_verified_at": "2026-06-09T06:22:00.491999+00:00",
+      "confidence_label": "High"
+    },
+    {
+      "id": "b0e9dacfc2df625d",
+      "schema_version": "1.0",
+      "ingested_at": "2026-06-09T06:22:00.491999+00:00",
+      "published_at": "2026-06-02T14:22:00.491999+00:00",
+      "freshness": "RECENT",
+      "brand": "BlueStone",
+      "brand_aliases_matched": [
+        "BlueStone"
+      ],
+      "tier": 1,
+      "headline": "BlueStone launches lab grown diamond collection",
+      "summary_2line": "BlueStone BlueStone enters lab-grown diamond segment. Source: Mock Data — for demo purposes.",
+      "category": "LAB_GROWN_DIAMOND_MOVE",
+      "category_family": "B_PRODUCT_PRICING",
+      "classification_rationale": "Mock signal for category LAB_GROWN_DIAMOND_MOVE",
+      "geo": {
+        "region": "West",
+        "state": "Maharashtra",
+        "city": "Mumbai",
+        "gcc": false
+      },
+      "source": {
+        "publisher": "Economic Times",
+        "url_original": "https://economictimes.indiatimes.com/mock/b0e9dacfc2df625d",
+        "url_fallback": "https://economictimes.indiatimes.com/mock/b0e9dacfc2df625d",
+        "reliability": "B",
+        "credibility": 2
+      },
+      "corroboration_count": 2,
+      "scores": {
+        "threat": 91.3,
+        "opportunity": 9.8,
+        "confidence": 65.9,
+        "cmo_salience": 88.0,
+        "composite_priority": 70.2
+      },
+      "flags": [
+        "THREAT_ALERT"
+      ],
+      "priority_band": "HIGH",
+      "analysis": {
+        "what_happened": "BlueStone made a move in the lab-grown diamond segment in Mumbai. (BlueStone launches lab grown diamond collection...)",
+        "why_it_matters_to_kisna": "Lab-grown pricing pressure directly challenges KISNA's natural-diamond positioning and consumer value perception.",
+        "possible_impact": "BlueStone's action in the lab grown diamond move space may affect KISNA's b product pricing landscape, particularly given their Tier 1 status.",
+        "suggested_action": "Convene a product-strategy session to define KISNA's lab-grown stance and prepare a CMO-approved holding statement."
+      },
+      "analysis_engine": "rules",
+      "last_verified_at": "2026-06-09T06:22:00.491999+00:00",
+      "confidence_label": "High"
+    },
+    {
+      "id": "98dfeb52d803ed02",
+      "schema_version": "1.0",
+      "ingested_at": "2026-06-09T06:22:00.491999+00:00",
+      "published_at": "2026-06-08T20:22:00.491999+00:00",
+      "freshness": "NEW",
+      "brand": "Tanishq",
+      "brand_aliases_matched": [
+        "Tanishq"
+      ],
+      "tier": 1,
+      "headline": "Tanishq signs Ranveer Singh as brand ambassador",
+      "summary_2line": "Tanishq Celebrity endorsement announced for Tanishq. Source: Mock Data — for demo purposes.",
+      "category": "CELEBRITY_AMBASSADOR",
+      "category_family": "A_BRAND_MARKETING",
+      "classification_rationale": "Mock signal for category CELEBRITY_AMBASSADOR",
+      "geo": {
+        "region": null,
+        "state": null,
+        "city": "Ahmedabad",
+        "gcc": false
+      },
+      "source": {
+        "publisher": "Economic Times",
+        "url_original": "https://economictimes.indiatimes.com/mock/98dfeb52d803ed02",
+        "url_fallback": "https://economictimes.indiatimes.com/mock/98dfeb52d803ed02",
+        "reliability": "B",
+        "credibility": 2
+      },
+      "corroboration_count": 2,
+      "scores": {
+        "threat": 75.0,
+        "opportunity": 15.0,
+        "confidence": 59.3,
+        "cmo_salience": 92.0,
+        "composite_priority": 65.7
+      },
+      "flags": [],
+      "priority_band": "MEDIUM",
+      "analysis": {
+        "what_happened": "Tanishq signed a celebrity brand ambassador in Ahmedabad. (Tanishq signs Ranveer Singh as brand ambassador...)",
+        "why_it_matters_to_kisna": "A high-profile ambassador accelerates brand recall and puts pressure on KISNA's ambassador strategy.",
+        "possible_impact": "Tanishq's action in the celebrity ambassador space may affect KISNA's a brand marketing landscape, particularly given their Tier 1 status.",
+        "suggested_action": "Evaluate KISNA's current ambassador pipeline and assess if a comparable or complementary signing is strategically timely."
+      },
+      "analysis_engine": "rules",
+      "last_verified_at": "2026-06-09T06:22:00.491999+00:00",
+      "confidence_label": "Medium"
+    },
+    {
+      "id": "02ce4345bab747cf",
+      "schema_version": "1.0",
+      "ingested_at": "2026-06-09T06:22:00.491999+00:00",
+      "published_at": "2026-06-05T12:22:00.491999+00:00",
+      "freshness": "RECENT",
+      "brand": "CaratLane",
+      "brand_aliases_matched": [
+        "CaratLane"
+      ],
+      "tier": 1,
+      "headline": "CaratLane launches lab grown diamond collection",
+      "summary_2line": "CaratLane CaratLane enters lab-grown diamond segment. Source: Mock Data — for demo purposes.",
+      "category": "LAB_GROWN_DIAMOND_MOVE",
+      "category_family": "B_PRODUCT_PRICING",
+      "classification_rationale": "Mock signal for category LAB_GROWN_DIAMOND_MOVE",
+      "geo": {
+        "region": null,
+        "state": null,
+        "city": "Jaipur",
+        "gcc": false
+      },
+      "source": {
+        "publisher": "Economic Times",
+        "url_original": "https://economictimes.indiatimes.com/mock/02ce4345bab747cf",
+        "url_fallback": "https://economictimes.indiatimes.com/mock/02ce4345bab747cf",
+        "reliability": "B",
+        "credibility": 2
+      },
+      "corroboration_count": 2,
+      "scores": {
+        "threat": 73.1,
+        "opportunity": 9.8,
+        "confidence": 59.3,
+        "cmo_salience": 88.0,
+        "composite_priority": 62.8
+      },
+      "flags": [],
+      "priority_band": "MEDIUM",
+      "analysis": {
+        "what_happened": "CaratLane made a move in the lab-grown diamond segment in Jaipur. (CaratLane launches lab grown diamond collection...)",
+        "why_it_matters_to_kisna": "Lab-grown pricing pressure directly challenges KISNA's natural-diamond positioning and consumer value perception.",
+        "possible_impact": "CaratLane's action in the lab grown diamond move space may affect KISNA's b product pricing landscape, particularly given their Tier 1 status.",
+        "suggested_action": "Convene a product-strategy session to define KISNA's lab-grown stance and prepare a CMO-approved holding statement."
+      },
+      "analysis_engine": "rules",
+      "last_verified_at": "2026-06-09T06:22:00.491999+00:00",
+      "confidence_label": "Medium"
+    },
+    {
+      "id": "0641bd1d2903b3b1",
+      "schema_version": "1.0",
+      "ingested_at": "2026-06-09T06:22:00.491999+00:00",
+      "published_at": "2026-06-06T18:22:00.491999+00:00",
+      "freshness": "FRESH",
+      "brand": "Tanishq",
+      "brand_aliases_matched": [
+        "Tanishq"
+      ],
+      "tier": 1,
+      "headline": "Tanishq invites franchise partners across South India",
+      "summary_2line": "Tanishq Tanishq opens franchise partner applications. Source: Mock Data — for demo purposes.",
+      "category": "FRANCHISE_OPPORTUNITY",
+      "category_family": "C_RETAIL_EXPANSION",
+      "classification_rationale": "Mock signal for category FRANCHISE_OPPORTUNITY",
+      "geo": {
+        "region": null,
+        "state": null,
+        "city": "Bangalore",
+        "gcc": false
+      },
+      "source": {
+        "publisher": "Indian Jeweller",
+        "url_original": "https://economictimes.indiatimes.com/mock/0641bd1d2903b3b1",
+        "url_fallback": "https://economictimes.indiatimes.com/mock/0641bd1d2903b3b1",
+        "reliability": "C",
+        "credibility": 4
+      },
+      "corroboration_count": 1,
+      "scores": {
+        "threat": 100.0,
+        "opportunity": 76.5,
+        "confidence": 34.6,
+        "cmo_salience": 95.0,
+        "composite_priority": 58.8
+      },
+      "flags": [],
+      "priority_band": "MEDIUM",
+      "analysis": {
+        "what_happened": "Tanishq issued an open call for franchise partners in Bangalore. (Tanishq invites franchise partners across South India...)",
+        "why_it_matters_to_kisna": "An open franchise call directly competes for the same investor pool KISNA relies on for FOFO expansion.",
+        "possible_impact": "If confirmed, Tanishq's action in the franchise opportunity space may affect KISNA's c retail expansion landscape, particularly given their Tier 1 status.",
+        "suggested_action": "Alert the franchise development team immediately — reach out proactively to prospective partners in overlapping markets before competitor closes."
+      },
+      "analysis_engine": "rules",
+      "last_verified_at": "2026-06-09T06:22:00.491999+00:00",
+      "confidence_label": "Low"
+    },
+    {
+      "id": "4bb45242b97eba47",
+      "schema_version": "1.0",
+      "ingested_at": "2026-06-09T06:22:00.491999+00:00",
+      "published_at": "2026-06-05T22:22:00.491999+00:00",
+      "freshness": "RECENT",
+      "brand": "Tanishq",
+      "brand_aliases_matched": [
+        "Tanishq"
+      ],
+      "tier": 1,
+      "headline": "Tanishq launches digital-first campaign for GenZ",
+      "summary_2line": "Tanishq Tanishq targets younger buyers with new campaign. Source: Mock Data — for demo purposes.",
+      "category": "CAMPAIGN_LAUNCH",
+      "category_family": "A_BRAND_MARKETING",
+      "classification_rationale": "Mock signal for category CAMPAIGN_LAUNCH",
+      "geo": {
+        "region": "West",
+        "state": "Maharashtra",
+        "city": "Mumbai",
+        "gcc": false
+      },
+      "source": {
+        "publisher": "Economic Times",
+        "url_original": "https://economictimes.indiatimes.com/mock/4bb45242b97eba47",
+        "url_fallback": "https://economictimes.indiatimes.com/mock/4bb45242b97eba47",
+        "reliability": "B",
+        "credibility": 2
+      },
+      "corroboration_count": 2,
+      "scores": {
+        "threat": 56.9,
+        "opportunity": 9.8,
+        "confidence": 65.9,
+        "cmo_salience": 90.0,
+        "composite_priority": 58.8
+      },
+      "flags": [],
+      "priority_band": "MEDIUM",
+      "analysis": {
+        "what_happened": "Tanishq launched a new marketing campaign in Mumbai. (Tanishq launches digital-first campaign for GenZ...)",
+        "why_it_matters_to_kisna": "This increases share-of-voice in segments where KISNA competes and may shift consumer attention.",
+        "possible_impact": "Tanishq's action in the campaign launch space may affect KISNA's a brand marketing landscape, particularly given their Tier 1 status.",
+        "suggested_action": "Brief the creative and media team to review competitor creative and identify KISNA's differentiated counter-narrative this week."
+      },
+      "analysis_engine": "rules",
+      "last_verified_at": "2026-06-09T06:22:00.491999+00:00",
+      "confidence_label": "High"
+    },
+    {
+      "id": "be26803768a6f50d",
+      "schema_version": "1.0",
+      "ingested_at": "2026-06-09T06:22:00.491999+00:00",
+      "published_at": "2026-06-06T08:22:00.491999+00:00",
+      "freshness": "FRESH",
+      "brand": "CaratLane",
+      "brand_aliases_matched": [
+        "CaratLane"
+      ],
+      "tier": 1,
+      "headline": "CaratLane opens new flagship showroom in Ahmedabad",
+      "summary_2line": "CaratLane CaratLane has inaugurated a new showroom in Ahmedabad. Source: Mock Data — for demo purposes.",
+      "category": "STORE_OPENING",
+      "category_family": "C_RETAIL_EXPANSION",
+      "classification_rationale": "Mock signal for category STORE_OPENING",
+      "geo": {
+        "region": null,
+        "state": null,
+        "city": "Ahmedabad",
+        "gcc": false
+      },
+      "source": {
+        "publisher": "Economic Times",
+        "url_original": "https://economictimes.indiatimes.com/mock/be26803768a6f50d",
+        "url_fallback": "https://economictimes.indiatimes.com/mock/be26803768a6f50d",
+        "reliability": "B",
+        "credibility": 2
+      },
+      "corroboration_count": 2,
+      "scores": {
+        "threat": 68.4,
+        "opportunity": 12.8,
+        "confidence": 59.3,
+        "cmo_salience": 75.0,
+        "composite_priority": 57.9
+      },
+      "flags": [],
+      "priority_band": "MEDIUM",
+      "analysis": {
+        "what_happened": "CaratLane opened a new store in Ahmedabad. (CaratLane opens new flagship showroom in Ahmedabad...)",
+        "why_it_matters_to_kisna": "Physical expansion increases competitor footprint and brand visibility, particularly relevant if in KISNA's overlap markets.",
+        "possible_impact": "CaratLane's action in the store opening space may affect KISNA's c retail expansion landscape, particularly given their Tier 1 status.",
+        "suggested_action": "Instruct the retail team to map the competitor's new location against KISNA's franchise pipeline and adjust city priorities if needed."
+      },
+      "analysis_engine": "rules",
+      "last_verified_at": "2026-06-09T06:22:00.491999+00:00",
+      "confidence_label": "Medium"
+    },
+    {
+      "id": "0a5138e70423ef89",
+      "schema_version": "1.0",
+      "ingested_at": "2026-06-09T06:22:00.491999+00:00",
+      "published_at": "2026-06-05T22:22:00.491999+00:00",
+      "freshness": "RECENT",
+      "brand": "CaratLane",
+      "brand_aliases_matched": [
+        "CaratLane"
+      ],
+      "tier": 1,
+      "headline": "CaratLane signs Ranveer Singh as brand ambassador",
+      "summary_2line": "CaratLane Celebrity endorsement announced for CaratLane. Source: Mock Data — for demo purposes.",
+      "category": "CELEBRITY_AMBASSADOR",
+      "category_family": "A_BRAND_MARKETING",
+      "classification_rationale": "Mock signal for category CELEBRITY_AMBASSADOR",
+      "geo": {
+        "region": null,
+        "state": null,
+        "city": "Bangalore",
+        "gcc": false
+      },
+      "source": {
+        "publisher": "Economic Times",
+        "url_original": "https://economictimes.indiatimes.com/mock/0a5138e70423ef89",
+        "url_fallback": "https://economictimes.indiatimes.com/mock/0a5138e70423ef89",
+        "reliability": "B",
+        "credibility": 2
+      },
+      "corroboration_count": 2,
+      "scores": {
+        "threat": 48.8,
+        "opportunity": 9.8,
+        "confidence": 59.3,
+        "cmo_salience": 92.0,
+        "composite_priority": 55.5
+      },
+      "flags": [],
+      "priority_band": "MEDIUM",
+      "analysis": {
+        "what_happened": "CaratLane signed a celebrity brand ambassador in Bangalore. (CaratLane signs Ranveer Singh as brand ambassador...)",
+        "why_it_matters_to_kisna": "A high-profile ambassador accelerates brand recall and puts pressure on KISNA's ambassador strategy.",
+        "possible_impact": "CaratLane's action in the celebrity ambassador space may affect KISNA's a brand marketing landscape, particularly given their Tier 1 status.",
+        "suggested_action": "Evaluate KISNA's current ambassador pipeline and assess if a comparable or complementary signing is strategically timely."
+      },
+      "analysis_engine": "rules",
+      "last_verified_at": "2026-06-09T06:22:00.491999+00:00",
+      "confidence_label": "Medium"
+    },
+    {
+      "id": "5936a1d2400a2c90",
+      "schema_version": "1.0",
+      "ingested_at": "2026-06-09T06:22:00.491999+00:00",
+      "published_at": "2026-06-03T00:22:00.491999+00:00",
+      "freshness": "RECENT",
+      "brand": "BlueStone",
+      "brand_aliases_matched": [
+        "BlueStone"
+      ],
+      "tier": 1,
+      "headline": "BlueStone signs Ranveer Singh as brand ambassador",
+      "summary_2line": "BlueStone Celebrity endorsement announced for BlueStone. Source: Mock Data — for demo purposes.",
+      "category": "CELEBRITY_AMBASSADOR",
+      "category_family": "A_BRAND_MARKETING",
+      "classification_rationale": "Mock signal for category CELEBRITY_AMBASSADOR",
+      "geo": {
+        "region": null,
+        "state": null,
+        "city": "Jaipur",
+        "gcc": false
+      },
+      "source": {
+        "publisher": "Economic Times",
+        "url_original": "https://economictimes.indiatimes.com/mock/5936a1d2400a2c90",
+        "url_fallback": "https://economictimes.indiatimes.com/mock/5936a1d2400a2c90",
+        "reliability": "B",
+        "credibility": 2
+      },
+      "corroboration_count": 2,
+      "scores": {
+        "threat": 48.8,
+        "opportunity": 9.8,
+        "confidence": 59.3,
+        "cmo_salience": 92.0,
+        "composite_priority": 55.5
+      },
+      "flags": [],
+      "priority_band": "MEDIUM",
+      "analysis": {
+        "what_happened": "BlueStone signed a celebrity brand ambassador in Jaipur. (BlueStone signs Ranveer Singh as brand ambassador...)",
+        "why_it_matters_to_kisna": "A high-profile ambassador accelerates brand recall and puts pressure on KISNA's ambassador strategy.",
+        "possible_impact": "BlueStone's action in the celebrity ambassador space may affect KISNA's a brand marketing landscape, particularly given their Tier 1 status.",
+        "suggested_action": "Evaluate KISNA's current ambassador pipeline and assess if a comparable or complementary signing is strategically timely."
+      },
+      "analysis_engine": "rules",
+      "last_verified_at": "2026-06-09T06:22:00.491999+00:00",
+      "confidence_label": "Medium"
+    },
+    {
+      "id": "36be401c7bd45470",
+      "schema_version": "1.0",
+      "ingested_at": "2026-06-09T06:22:00.491999+00:00",
+      "published_at": "2026-06-03T00:22:00.491999+00:00",
+      "freshness": "RECENT",
+      "brand": "CaratLane",
+      "brand_aliases_matched": [
+        "CaratLane"
+      ],
+      "tier": 1,
+      "headline": "CaratLane launches digital-first campaign for GenZ",
+      "summary_2line": "CaratLane CaratLane targets younger buyers with new campaign. Source: Mock Data — for demo purposes.",
+      "category": "CAMPAIGN_LAUNCH",
+      "category_family": "A_BRAND_MARKETING",
+      "classification_rationale": "Mock signal for category CAMPAIGN_LAUNCH",
+      "geo": {
+        "region": null,
+        "state": null,
+        "city": "Ahmedabad",
+        "gcc": false
+      },
+      "source": {
+        "publisher": "Economic Times",
+        "url_original": "https://economictimes.indiatimes.com/mock/36be401c7bd45470",
+        "url_fallback": "https://economictimes.indiatimes.com/mock/36be401c7bd45470",
+        "reliability": "B",
+        "credibility": 2
+      },
+      "corroboration_count": 2,
+      "scores": {
+        "threat": 45.5,
+        "opportunity": 9.8,
+        "confidence": 59.3,
+        "cmo_salience": 90.0,
+        "composite_priority": 53.8
+      },
+      "flags": [],
+      "priority_band": "MEDIUM",
+      "analysis": {
+        "what_happened": "CaratLane launched a new marketing campaign in Ahmedabad. (CaratLane launches digital-first campaign for GenZ...)",
+        "why_it_matters_to_kisna": "This increases share-of-voice in segments where KISNA competes and may shift consumer attention.",
+        "possible_impact": "CaratLane's action in the campaign launch space may affect KISNA's a brand marketing landscape, particularly given their Tier 1 status.",
+        "suggested_action": "Brief the creative and media team to review competitor creative and identify KISNA's differentiated counter-narrative this week."
+      },
+      "analysis_engine": "rules",
+      "last_verified_at": "2026-06-09T06:22:00.491999+00:00",
+      "confidence_label": "Medium"
+    },
+    {
+      "id": "08777eee9fd73180",
+      "schema_version": "1.0",
+      "ingested_at": "2026-06-09T06:22:00.491999+00:00",
+      "published_at": "2026-06-06T08:22:00.491999+00:00",
+      "freshness": "FRESH",
+      "brand": "Tanishq",
+      "brand_aliases_matched": [
+        "Tanishq"
+      ],
+      "tier": 1,
+      "headline": "Tanishq faces customer complaints over delayed delivery",
+      "summary_2line": "Tanishq Social media outrage over Tanishq service. Source: Mock Data — for demo purposes.",
+      "category": "COMPLAINT_CLUSTER",
+      "category_family": "F_CUSTOMER_REPUTATION",
+      "classification_rationale": "Mock signal for category COMPLAINT_CLUSTER",
+      "geo": {
+        "region": null,
+        "state": null,
+        "city": "Jaipur",
+        "gcc": false
+      },
+      "source": {
+        "publisher": "Indian Jeweller",
+        "url_original": "https://economictimes.indiatimes.com/mock/08777eee9fd73180",
+        "url_fallback": "https://economictimes.indiatimes.com/mock/08777eee9fd73180",
+        "reliability": "D",
+        "credibility": 4
+      },
+      "corroboration_count": 1,
+      "scores": {
+        "threat": 27.9,
+        "opportunity": 63.8,
+        "confidence": 22.0,
+        "cmo_salience": 92.0,
+        "composite_priority": 53.4
+      },
+      "flags": [],
+      "priority_band": "MEDIUM",
+      "analysis": {
+        "what_happened": "Tanishq faced a cluster of customer complaints or backlash in Jaipur. (Tanishq faces customer complaints over delayed delivery...)",
+        "why_it_matters_to_kisna": "A competitor's reputation crisis is a window to win their customers and franchise partners.",
+        "possible_impact": "If confirmed, Tanishq's action in the complaint cluster space may affect KISNA's f customer reputation landscape, particularly given their Tier 1 status.",
+        "suggested_action": "Prepare a brand-safety brief and activate customer service monitoring; consider targeted outreach in affected markets."
+      },
+      "analysis_engine": "rules",
+      "last_verified_at": "2026-06-09T06:22:00.491999+00:00",
+      "confidence_label": "Low"
+    },
+    {
+      "id": "8a357166ef60c0d0",
+      "schema_version": "1.0",
+      "ingested_at": "2026-06-09T06:22:00.491999+00:00",
+      "published_at": "2026-06-03T20:22:00.491999+00:00",
+      "freshness": "RECENT",
+      "brand": "CaratLane",
+      "brand_aliases_matched": [
+        "CaratLane"
+      ],
+      "tier": 1,
+      "headline": "CaratLane invites franchise partners across South India",
+      "summary_2line": "CaratLane CaratLane opens franchise partner applications. Source: Mock Data — for demo purposes.",
+      "category": "FRANCHISE_OPPORTUNITY",
+      "category_family": "C_RETAIL_EXPANSION",
+      "classification_rationale": "Mock signal for category FRANCHISE_OPPORTUNITY",
+      "geo": {
+        "region": null,
+        "state": null,
+        "city": "Jaipur",
+        "gcc": false
+      },
+      "source": {
+        "publisher": "Indian Jeweller",
+        "url_original": "https://economictimes.indiatimes.com/mock/8a357166ef60c0d0",
+        "url_fallback": "https://economictimes.indiatimes.com/mock/8a357166ef60c0d0",
+        "reliability": "C",
+        "credibility": 4
+      },
+      "corroboration_count": 1,
+      "scores": {
+        "threat": 87.5,
+        "opportunity": 58.5,
+        "confidence": 34.6,
+        "cmo_salience": 95.0,
+        "composite_priority": 53.2
+      },
+      "flags": [],
+      "priority_band": "MEDIUM",
+      "analysis": {
+        "what_happened": "CaratLane issued an open call for franchise partners in Jaipur. (CaratLane invites franchise partners across South India...)",
+        "why_it_matters_to_kisna": "An open franchise call directly competes for the same investor pool KISNA relies on for FOFO expansion.",
+        "possible_impact": "If confirmed, CaratLane's action in the franchise opportunity space may affect KISNA's c retail expansion landscape, particularly given their Tier 1 status.",
+        "suggested_action": "Alert the franchise development team immediately — reach out proactively to prospective partners in overlapping markets before competitor closes."
+      },
+      "analysis_engine": "rules",
+      "last_verified_at": "2026-06-09T06:22:00.491999+00:00",
+      "confidence_label": "Low"
+    },
+    {
+      "id": "6b2c521f78d1b206",
+      "schema_version": "1.0",
+      "ingested_at": "2026-06-09T06:22:00.491999+00:00",
+      "published_at": "2026-06-07T04:22:00.491999+00:00",
+      "freshness": "FRESH",
+      "brand": "Tanishq",
+      "brand_aliases_matched": [
+        "Tanishq"
+      ],
+      "tier": 1,
+      "headline": "Tanishq reports strong Q4 revenue growth",
+      "summary_2line": "Tanishq Tanishq posts quarterly revenue numbers. Source: Mock Data — for demo purposes.",
+      "category": "FINANCIAL_RESULTS",
+      "category_family": "E_CORPORATE_CAPITAL",
+      "classification_rationale": "Mock signal for category FINANCIAL_RESULTS",
+      "geo": {
+        "region": null,
+        "state": null,
+        "city": "Ahmedabad",
+        "gcc": false
+      },
+      "source": {
+        "publisher": "Economic Times",
+        "url_original": "https://economictimes.indiatimes.com/mock/6b2c521f78d1b206",
+        "url_fallback": "https://economictimes.indiatimes.com/mock/6b2c521f78d1b206",
+        "reliability": "B",
+        "credibility": 2
+      },
+      "corroboration_count": 2,
+      "scores": {
+        "threat": 55.2,
+        "opportunity": 34.0,
+        "confidence": 59.3,
+        "cmo_salience": 60.0,
+        "composite_priority": 53.0
+      },
+      "flags": [],
+      "priority_band": "MEDIUM",
+      "analysis": {
+        "what_happened": "Tanishq announced financial results in Ahmedabad. (Tanishq reports strong Q4 revenue growth...)",
+        "why_it_matters_to_kisna": "This development by Tanishq (Tier 1) warrants tracking as it may affect KISNA's competitive position.",
+        "possible_impact": "Tanishq's action in the financial results space may affect KISNA's e corporate capital landscape, particularly given their Tier 1 status.",
+        "suggested_action": "Flag this Tanishq development for the weekly competitive review and assign a team member to monitor follow-up coverage."
+      },
+      "analysis_engine": "rules",
+      "last_verified_at": "2026-06-09T06:22:00.491999+00:00",
+      "confidence_label": "Medium"
+    },
+    {
+      "id": "e7dd87d9ecd07c35",
+      "schema_version": "1.0",
+      "ingested_at": "2026-06-09T06:22:00.491999+00:00",
+      "published_at": "2026-06-05T12:22:00.491999+00:00",
+      "freshness": "RECENT",
+      "brand": "Tanishq",
+      "brand_aliases_matched": [
+        "Tanishq"
+      ],
+      "tier": 1,
+      "headline": "Tanishq enters Karnataka market with 3 new stores",
+      "summary_2line": "Tanishq Tanishq expands to new geography. Source: Mock Data — for demo purposes.",
+      "category": "GEO_ENTRY",
+      "category_family": "C_RETAIL_EXPANSION",
+      "classification_rationale": "Mock signal for category GEO_ENTRY",
+      "geo": {
+        "region": "South",
+        "state": "Karnataka",
+        "city": null,
+        "gcc": false
+      },
+      "source": {
+        "publisher": "Economic Times",
+        "url_original": "https://economictimes.indiatimes.com/mock/e7dd87d9ecd07c35",
+        "url_fallback": "https://economictimes.indiatimes.com/mock/e7dd87d9ecd07c35",
+        "reliability": "B",
+        "credibility": 2
+      },
+      "corroboration_count": 2,
+      "scores": {
+        "threat": 52.3,
+        "opportunity": 9.8,
+        "confidence": 59.3,
+        "cmo_salience": 78.0,
+        "composite_priority": 52.6
+      },
+      "flags": [],
+      "priority_band": "MEDIUM",
+      "analysis": {
+        "what_happened": "Tanishq entered a new geography in Ahmedabad. (Tanishq enters Karnataka market with 3 new stores...)",
+        "why_it_matters_to_kisna": "This development by Tanishq (Tier 1) warrants tracking as it may affect KISNA's competitive position.",
+        "possible_impact": "Tanishq's action in the geo entry space may affect KISNA's c retail expansion landscape, particularly given their Tier 1 status.",
+        "suggested_action": "Flag this Tanishq development for the weekly competitive review and assign a team member to monitor follow-up coverage."
+      },
+      "analysis_engine": "rules",
+      "last_verified_at": "2026-06-09T06:22:00.491999+00:00",
+      "confidence_label": "Medium"
+    },
+    {
+      "id": "46f1e4ef48e17700",
+      "schema_version": "1.0",
+      "ingested_at": "2026-06-09T06:22:00.491999+00:00",
+      "published_at": "2026-06-02T14:22:00.491999+00:00",
+      "freshness": "RECENT",
+      "brand": "CaratLane",
+      "brand_aliases_matched": [
+        "CaratLane"
+      ],
+      "tier": 1,
+      "headline": "CaratLane enters Karnataka market with 3 new stores",
+      "summary_2line": "CaratLane CaratLane expands to new geography. Source: Mock Data — for demo purposes.",
+      "category": "GEO_ENTRY",
+      "category_family": "C_RETAIL_EXPANSION",
+      "classification_rationale": "Mock signal for category GEO_ENTRY",
+      "geo": {
+        "region": "South",
+        "state": "Karnataka",
+        "city": null,
+        "gcc": false
+      },
+      "source": {
+        "publisher": "Economic Times",
+        "url_original": "https://economictimes.indiatimes.com/mock/46f1e4ef48e17700",
+        "url_fallback": "https://economictimes.indiatimes.com/mock/46f1e4ef48e17700",
+        "reliability": "B",
+        "credibility": 2
+      },
+      "corroboration_count": 2,
+      "scores": {
+        "threat": 52.3,
+        "opportunity": 9.8,
+        "confidence": 59.3,
+        "cmo_salience": 78.0,
+        "composite_priority": 52.6
+      },
+      "flags": [],
+      "priority_band": "MEDIUM",
+      "analysis": {
+        "what_happened": "CaratLane entered a new geography in Bangalore. (CaratLane enters Karnataka market with 3 new stores...)",
+        "why_it_matters_to_kisna": "This development by CaratLane (Tier 1) warrants tracking as it may affect KISNA's competitive position.",
+        "possible_impact": "CaratLane's action in the geo entry space may affect KISNA's c retail expansion landscape, particularly given their Tier 1 status.",
+        "suggested_action": "Flag this CaratLane development for the weekly competitive review and assign a team member to monitor follow-up coverage."
+      },
+      "analysis_engine": "rules",
+      "last_verified_at": "2026-06-09T06:22:00.491999+00:00",
+      "confidence_label": "Medium"
+    },
+    {
+      "id": "b3d0e8527e18349e",
+      "schema_version": "1.0",
+      "ingested_at": "2026-06-09T06:22:00.491999+00:00",
+      "published_at": "2026-06-03T10:22:00.491999+00:00",
+      "freshness": "RECENT",
+      "brand": "BlueStone",
+      "brand_aliases_matched": [
+        "BlueStone"
+      ],
+      "tier": 1,
+      "headline": "BlueStone opens new flagship showroom in Bangalore",
+      "summary_2line": "BlueStone BlueStone has inaugurated a new showroom in Bangalore. Source: Mock Data — for demo purposes.",
+      "category": "STORE_OPENING",
+      "category_family": "C_RETAIL_EXPANSION",
+      "classification_rationale": "Mock signal for category STORE_OPENING",
+      "geo": {
+        "region": null,
+        "state": null,
+        "city": "Bangalore",
+        "gcc": false
+      },
+      "source": {
+        "publisher": "Economic Times",
+        "url_original": "https://economictimes.indiatimes.com/mock/b3d0e8527e18349e",
+        "url_fallback": "https://economictimes.indiatimes.com/mock/b3d0e8527e18349e",
+        "reliability": "B",
+        "credibility": 2
+      },
+      "corroboration_count": 2,
+      "scores": {
+        "threat": 52.3,
+        "opportunity": 9.8,
+        "confidence": 59.3,
+        "cmo_salience": 75.0,
+        "composite_priority": 51.7
+      },
+      "flags": [],
+      "priority_band": "MEDIUM",
+      "analysis": {
+        "what_happened": "BlueStone opened a new store in Bangalore. (BlueStone opens new flagship showroom in Bangalore...)",
+        "why_it_matters_to_kisna": "Physical expansion increases competitor footprint and brand visibility, particularly relevant if in KISNA's overlap markets.",
+        "possible_impact": "BlueStone's action in the store opening space may affect KISNA's c retail expansion landscape, particularly given their Tier 1 status.",
+        "suggested_action": "Instruct the retail team to map the competitor's new location against KISNA's franchise pipeline and adjust city priorities if needed."
+      },
+      "analysis_engine": "rules",
+      "last_verified_at": "2026-06-09T06:22:00.491999+00:00",
+      "confidence_label": "Medium"
+    },
+    {
+      "id": "ddac29516b5a914a",
+      "schema_version": "1.0",
+      "ingested_at": "2026-06-09T06:22:00.491999+00:00",
+      "published_at": "2026-06-03T10:22:00.491999+00:00",
+      "freshness": "RECENT",
+      "brand": "CaratLane",
+      "brand_aliases_matched": [
+        "CaratLane"
+      ],
+      "tier": 1,
+      "headline": "CaratLane faces customer complaints over delayed delivery",
+      "summary_2line": "CaratLane Social media outrage over CaratLane service. Source: Mock Data — for demo purposes.",
+      "category": "COMPLAINT_CLUSTER",
+      "category_family": "F_CUSTOMER_REPUTATION",
+      "classification_rationale": "Mock signal for category COMPLAINT_CLUSTER",
+      "geo": {
+        "region": "West",
+        "state": "Maharashtra",
+        "city": "Mumbai",
+        "gcc": false
+      },
+      "source": {
+        "publisher": "Indian Jeweller",
+        "url_original": "https://economictimes.indiatimes.com/mock/ddac29516b5a914a",
+        "url_fallback": "https://economictimes.indiatimes.com/mock/ddac29516b5a914a",
+        "reliability": "D",
+        "credibility": 4
+      },
+      "corroboration_count": 1,
+      "scores": {
+        "threat": 26.7,
+        "opportunity": 48.8,
+        "confidence": 24.5,
+        "cmo_salience": 92.0,
+        "composite_priority": 50.4
+      },
+      "flags": [],
+      "priority_band": "MEDIUM",
+      "analysis": {
+        "what_happened": "CaratLane faced a cluster of customer complaints or backlash in Mumbai. (CaratLane faces customer complaints over delayed delivery...)",
+        "why_it_matters_to_kisna": "A competitor's reputation crisis is a window to win their customers and franchise partners.",
+        "possible_impact": "If confirmed, CaratLane's action in the complaint cluster space may affect KISNA's f customer reputation landscape, particularly given their Tier 1 status.",
+        "suggested_action": "Prepare a brand-safety brief and activate customer service monitoring; consider targeted outreach in affected markets."
+      },
+      "analysis_engine": "rules",
+      "last_verified_at": "2026-06-09T06:22:00.491999+00:00",
+      "confidence_label": "Low"
+    },
+    {
+      "id": "6250c01a7fc4c20e",
+      "schema_version": "1.0",
+      "ingested_at": "2026-06-09T06:22:00.491999+00:00",
+      "published_at": "2026-06-07T14:22:00.491999+00:00",
+      "freshness": "FRESH",
+      "brand": "Tanishq",
+      "brand_aliases_matched": [
+        "Tanishq"
+      ],
+      "tier": 1,
+      "headline": "Tanishq rolls out festive gold savings scheme",
+      "summary_2line": "Tanishq New gold scheme from Tanishq for wedding season. Source: Mock Data — for demo purposes.",
+      "category": "PRICING_OR_SCHEME",
+      "category_family": "B_PRODUCT_PRICING",
+      "classification_rationale": "Mock signal for category PRICING_OR_SCHEME",
+      "geo": {
+        "region": "West",
+        "state": "Maharashtra",
+        "city": "Mumbai",
+        "gcc": false
+      },
+      "source": {
+        "publisher": "Indian Jeweller",
+        "url_original": "https://economictimes.indiatimes.com/mock/6250c01a7fc4c20e",
+        "url_fallback": "https://economictimes.indiatimes.com/mock/6250c01a7fc4c20e",
+        "reliability": "C",
+        "credibility": 4
+      },
+      "corroboration_count": 1,
+      "scores": {
+        "threat": 100.0,
+        "opportunity": 12.8,
+        "confidence": 38.5,
+        "cmo_salience": 80.0,
+        "composite_priority": 47.1
+      },
+      "flags": [],
+      "priority_band": "MEDIUM",
+      "analysis": {
+        "what_happened": "Tanishq introduced a new pricing scheme or festive offer in Mumbai. (Tanishq rolls out festive gold savings scheme...)",
+        "why_it_matters_to_kisna": "Aggressive schemes reprice category expectations and may divert purchase decisions away from KISNA.",
+        "possible_impact": "If confirmed, Tanishq's action in the pricing or scheme space may affect KISNA's b product pricing landscape, particularly given their Tier 1 status.",
+        "suggested_action": "Instruct the commercial team to benchmark the competitor's scheme and prepare KISNA's next festive offer counter-response."
+      },
+      "analysis_engine": "rules",
+      "last_verified_at": "2026-06-09T06:22:00.491999+00:00",
+      "confidence_label": "Low"
+    },
+    {
+      "id": "607f1787bc381c73",
+      "schema_version": "1.0",
+      "ingested_at": "2026-06-09T06:22:00.491999+00:00",
+      "published_at": "2026-06-04T06:22:00.491999+00:00",
+      "freshness": "RECENT",
+      "brand": "CaratLane",
+      "brand_aliases_matched": [
+        "CaratLane"
+      ],
+      "tier": 1,
+      "headline": "CaratLane reports strong Q4 revenue growth",
+      "summary_2line": "CaratLane CaratLane posts quarterly revenue numbers. Source: Mock Data — for demo purposes.",
+      "category": "FINANCIAL_RESULTS",
+      "category_family": "E_CORPORATE_CAPITAL",
+      "classification_rationale": "Mock signal for category FINANCIAL_RESULTS",
+      "geo": {
+        "region": null,
+        "state": null,
+        "city": "Bangalore",
+        "gcc": false
+      },
+      "source": {
+        "publisher": "Economic Times",
+        "url_original": "https://economictimes.indiatimes.com/mock/607f1787bc381c73",
+        "url_fallback": "https://economictimes.indiatimes.com/mock/607f1787bc381c73",
+        "reliability": "B",
+        "credibility": 2
+      },
+      "corroboration_count": 2,
+      "scores": {
+        "threat": 42.2,
+        "opportunity": 26.0,
+        "confidence": 59.3,
+        "cmo_salience": 60.0,
+        "composite_priority": 46.9
+      },
+      "flags": [],
+      "priority_band": "MEDIUM",
+      "analysis": {
+        "what_happened": "CaratLane announced financial results in Bangalore. (CaratLane reports strong Q4 revenue growth...)",
+        "why_it_matters_to_kisna": "This development by CaratLane (Tier 1) warrants tracking as it may affect KISNA's competitive position.",
+        "possible_impact": "CaratLane's action in the financial results space may affect KISNA's e corporate capital landscape, particularly given their Tier 1 status.",
+        "suggested_action": "Flag this CaratLane development for the weekly competitive review and assign a team member to monitor follow-up coverage."
+      },
+      "analysis_engine": "rules",
+      "last_verified_at": "2026-06-09T06:22:00.491999+00:00",
+      "confidence_label": "Medium"
+    },
+    {
+      "id": "2f6213efd6f67a54",
+      "schema_version": "1.0",
+      "ingested_at": "2026-06-09T06:22:00.491999+00:00",
+      "published_at": "2026-06-08T18:22:00.491999+00:00",
+      "freshness": "NEW",
+      "brand": "BlueStone",
+      "brand_aliases_matched": [
+        "BlueStone"
+      ],
+      "tier": 1,
+      "headline": "BlueStone rolls out festive gold savings scheme",
+      "summary_2line": "BlueStone New gold scheme from BlueStone for wedding season. Source: Mock Data — for demo purposes.",
+      "category": "PRICING_OR_SCHEME",
+      "category_family": "B_PRODUCT_PRICING",
+      "classification_rationale": "Mock signal for category PRICING_OR_SCHEME",
+      "geo": {
+        "region": null,
+        "state": null,
+        "city": "Bangalore",
+        "gcc": false
+      },
+      "source": {
+        "publisher": "Indian Jeweller",
+        "url_original": "https://economictimes.indiatimes.com/mock/2f6213efd6f67a54",
+        "url_fallback": "https://economictimes.indiatimes.com/mock/2f6213efd6f67a54",
+        "reliability": "C",
+        "credibility": 4
+      },
+      "corroboration_count": 1,
+      "scores": {
+        "threat": 95.2,
+        "opportunity": 15.0,
+        "confidence": 34.6,
+        "cmo_salience": 80.0,
+        "composite_priority": 45.9
+      },
+      "flags": [],
+      "priority_band": "MEDIUM",
+      "analysis": {
+        "what_happened": "BlueStone introduced a new pricing scheme or festive offer in Bangalore. (BlueStone rolls out festive gold savings scheme...)",
+        "why_it_matters_to_kisna": "Aggressive schemes reprice category expectations and may divert purchase decisions away from KISNA.",
+        "possible_impact": "If confirmed, BlueStone's action in the pricing or scheme space may affect KISNA's b product pricing landscape, particularly given their Tier 1 status.",
+        "suggested_action": "Instruct the commercial team to benchmark the competitor's scheme and prepare KISNA's next festive offer counter-response."
+      },
+      "analysis_engine": "rules",
+      "last_verified_at": "2026-06-09T06:22:00.491999+00:00",
+      "confidence_label": "Low"
+    },
+    {
+      "id": "cdbadea3d4d64fb0",
+      "schema_version": "1.0",
+      "ingested_at": "2026-06-09T06:22:00.491999+00:00",
+      "published_at": "2026-06-09T04:22:00.491999+00:00",
+      "freshness": "NEW",
+      "brand": "BlueStone",
+      "brand_aliases_matched": [
+        "BlueStone"
+      ],
+      "tier": 1,
+      "headline": "BlueStone announces franchise expansion plan for 2025",
+      "summary_2line": "BlueStone BlueStone FOFO franchise network growing. Source: Mock Data — for demo purposes.",
+      "category": "FRANCHISE_EXPANSION",
+      "category_family": "C_RETAIL_EXPANSION",
+      "classification_rationale": "Mock signal for category FRANCHISE_EXPANSION",
+      "geo": {
+        "region": null,
+        "state": null,
+        "city": "Ahmedabad",
+        "gcc": false
+      },
+      "source": {
+        "publisher": "Indian Jeweller",
+        "url_original": "https://economictimes.indiatimes.com/mock/cdbadea3d4d64fb0",
+        "url_fallback": "https://economictimes.indiatimes.com/mock/cdbadea3d4d64fb0",
+        "reliability": "C",
+        "credibility": 4
+      },
+      "corroboration_count": 1,
+      "scores": {
+        "threat": 86.2,
+        "opportunity": 15.0,
+        "confidence": 34.6,
+        "cmo_salience": 82.0,
+        "composite_priority": 44.1
+      },
+      "flags": [],
+      "priority_band": "LOW",
+      "analysis": {
+        "what_happened": "BlueStone expanded its franchise network in Ahmedabad. (BlueStone announces franchise expansion plan for 2025...)",
+        "why_it_matters_to_kisna": "Franchise network growth strengthens a competitor's reach and further strains the pool of available franchise partners.",
+        "possible_impact": "If confirmed, BlueStone's action in the franchise expansion space may affect KISNA's c retail expansion landscape, particularly given their Tier 1 status.",
+        "suggested_action": "Accelerate outreach to uncommitted franchise prospects in cities where the competitor is expanding."
+      },
+      "analysis_engine": "rules",
+      "last_verified_at": "2026-06-09T06:22:00.491999+00:00",
+      "confidence_label": "Low"
+    },
+    {
+      "id": "eb78cefba409842b",
+      "schema_version": "1.0",
+      "ingested_at": "2026-06-09T06:22:00.491999+00:00",
+      "published_at": "2026-06-08T00:22:00.491999+00:00",
+      "freshness": "FRESH",
+      "brand": "Tanishq",
+      "brand_aliases_matched": [
+        "Tanishq"
+      ],
+      "tier": 1,
+      "headline": "Tanishq announces franchise expansion plan for 2025",
+      "summary_2line": "Tanishq Tanishq FOFO franchise network growing. Source: Mock Data — for demo purposes.",
+      "category": "FRANCHISE_EXPANSION",
+      "category_family": "C_RETAIL_EXPANSION",
+      "classification_rationale": "Mock signal for category FRANCHISE_EXPANSION",
+      "geo": {
+        "region": null,
+        "state": null,
+        "city": "Jaipur",
+        "gcc": false
+      },
+      "source": {
+        "publisher": "Indian Jeweller",
+        "url_original": "https://economictimes.indiatimes.com/mock/eb78cefba409842b",
+        "url_fallback": "https://economictimes.indiatimes.com/mock/eb78cefba409842b",
+        "reliability": "C",
+        "credibility": 4
+      },
+      "corroboration_count": 1,
+      "scores": {
+        "threat": 73.3,
+        "opportunity": 12.8,
+        "confidence": 34.6,
+        "cmo_salience": 82.0,
+        "composite_priority": 40.6
+      },
+      "flags": [],
+      "priority_band": "LOW",
+      "analysis": {
+        "what_happened": "Tanishq expanded its franchise network in Jaipur. (Tanishq announces franchise expansion plan for 2025...)",
+        "why_it_matters_to_kisna": "Franchise network growth strengthens a competitor's reach and further strains the pool of available franchise partners.",
+        "possible_impact": "If confirmed, Tanishq's action in the franchise expansion space may affect KISNA's c retail expansion landscape, particularly given their Tier 1 status.",
+        "suggested_action": "Accelerate outreach to uncommitted franchise prospects in cities where the competitor is expanding."
+      },
+      "analysis_engine": "rules",
+      "last_verified_at": "2026-06-09T06:22:00.491999+00:00",
+      "confidence_label": "Low"
+    },
+    {
+      "id": "3796c007986cbaae",
+      "schema_version": "1.0",
+      "ingested_at": "2026-06-09T06:22:00.491999+00:00",
+      "published_at": "2026-06-05T02:22:00.491999+00:00",
+      "freshness": "RECENT",
+      "brand": "CaratLane",
+      "brand_aliases_matched": [
+        "CaratLane"
+      ],
+      "tier": 1,
+      "headline": "CaratLane announces franchise expansion plan for 2025",
+      "summary_2line": "CaratLane CaratLane FOFO franchise network growing. Source: Mock Data — for demo purposes.",
+      "category": "FRANCHISE_EXPANSION",
+      "category_family": "C_RETAIL_EXPANSION",
+      "classification_rationale": "Mock signal for category FRANCHISE_EXPANSION",
+      "geo": {
+        "region": "West",
+        "state": "Maharashtra",
+        "city": "Mumbai",
+        "gcc": false
+      },
+      "source": {
+        "publisher": "Indian Jeweller",
+        "url_original": "https://economictimes.indiatimes.com/mock/3796c007986cbaae",
+        "url_fallback": "https://economictimes.indiatimes.com/mock/3796c007986cbaae",
+        "reliability": "C",
+        "credibility": 4
+      },
+      "corroboration_count": 1,
+      "scores": {
+        "threat": 70.1,
+        "opportunity": 9.8,
+        "confidence": 38.5,
+        "cmo_salience": 82.0,
+        "composite_priority": 39.8
+      },
+      "flags": [],
+      "priority_band": "LOW",
+      "analysis": {
+        "what_happened": "CaratLane expanded its franchise network in Mumbai. (CaratLane announces franchise expansion plan for 2025...)",
+        "why_it_matters_to_kisna": "Franchise network growth strengthens a competitor's reach and further strains the pool of available franchise partners.",
+        "possible_impact": "If confirmed, CaratLane's action in the franchise expansion space may affect KISNA's c retail expansion landscape, particularly given their Tier 1 status.",
+        "suggested_action": "Accelerate outreach to uncommitted franchise prospects in cities where the competitor is expanding."
+      },
+      "analysis_engine": "rules",
+      "last_verified_at": "2026-06-09T06:22:00.491999+00:00",
+      "confidence_label": "Low"
+    },
+    {
+      "id": "a576cccced903e2e",
+      "schema_version": "1.0",
+      "ingested_at": "2026-06-09T06:22:00.491999+00:00",
+      "published_at": "2026-06-04T16:22:00.491999+00:00",
+      "freshness": "RECENT",
+      "brand": "CaratLane",
+      "brand_aliases_matched": [
+        "CaratLane"
+      ],
+      "tier": 1,
+      "headline": "CaratLane rolls out festive gold savings scheme",
+      "summary_2line": "CaratLane New gold scheme from CaratLane for wedding season. Source: Mock Data — for demo purposes.",
+      "category": "PRICING_OR_SCHEME",
+      "category_family": "B_PRODUCT_PRICING",
+      "classification_rationale": "Mock signal for category PRICING_OR_SCHEME",
+      "geo": {
+        "region": null,
+        "state": null,
+        "city": "Ahmedabad",
+        "gcc": false
+      },
+      "source": {
+        "publisher": "Indian Jeweller",
+        "url_original": "https://economictimes.indiatimes.com/mock/a576cccced903e2e",
+        "url_fallback": "https://economictimes.indiatimes.com/mock/a576cccced903e2e",
+        "reliability": "C",
+        "credibility": 4
+      },
+      "corroboration_count": 1,
+      "scores": {
+        "threat": 61.9,
+        "opportunity": 9.8,
+        "confidence": 34.6,
+        "cmo_salience": 80.0,
+        "composite_priority": 37.0
+      },
+      "flags": [],
+      "priority_band": "LOW",
+      "analysis": {
+        "what_happened": "CaratLane introduced a new pricing scheme or festive offer in Ahmedabad. (CaratLane rolls out festive gold savings scheme...)",
+        "why_it_matters_to_kisna": "Aggressive schemes reprice category expectations and may divert purchase decisions away from KISNA.",
+        "possible_impact": "If confirmed, CaratLane's action in the pricing or scheme space may affect KISNA's b product pricing landscape, particularly given their Tier 1 status.",
+        "suggested_action": "Instruct the commercial team to benchmark the competitor's scheme and prepare KISNA's next festive offer counter-response."
+      },
+      "analysis_engine": "rules",
+      "last_verified_at": "2026-06-09T06:22:00.491999+00:00",
+      "confidence_label": "Low"
+    }
+  ],
+  "meta": {
+    "brands_tracked": 3,
+    "high_priority": 3,
+    "medium_priority": 18,
+    "threat_alerts": 2,
+    "opportunity_alerts": 0
+  }
+}

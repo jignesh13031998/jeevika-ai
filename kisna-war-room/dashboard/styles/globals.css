@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --canvas: #0B0809;
+  --glow: radial-gradient(ellipse 80% 40% at 50% 0%, rgba(142, 27, 46, 0.15) 0%, transparent 70%);
+  --accent-primary: #8E1B2E;
+  --accent-secondary: #C9A86A;
+  --prio-critical: #DC2626;
+  --prio-high: #EA580C;
+  --prio-medium: #D97706;
+  --prio-low: #16A34A;
+  --surface: #1A1215;
+  --surface-2: #251A1E;
+  --border: #3A2A2E;
+}
+
+body {
+  background-color: var(--canvas);
+  color: #E8E0E2;
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.font-display {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+}
+
+/* Glow behind hero section */
+.hero-glow::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 300px;
+  background: var(--glow);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Priority band dots */
+.dot-new {
+  animation: pulse-dot 1.2s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dot-new {
+    animation: none;
+  }
+  .animate-ticker {
+    animation: none;
+  }
+}
+
+/* Ticker */
+.ticker-track {
+  display: flex;
+  white-space: nowrap;
+  animation: ticker 75s linear infinite;
+}
+
+.ticker-track:hover {
+  animation-play-state: paused;
+}
+
+/* Maroon rail */
+.kisna-rail {
+  border-left: 3px solid var(--accent-primary);
+  padding-left: 12px;
+}
+
+/* Confidence chip */
+.chip-high { background: rgba(22, 163, 74, 0.15); color: #4ade80; border: 1px solid rgba(22, 163, 74, 0.3); }
+.chip-medium { background: rgba(217, 119, 6, 0.15); color: #fbbf24; border: 1px solid rgba(217, 119, 6, 0.3); }
+.chip-low { background: rgba(220, 38, 38, 0.15); color: #f87171; border: 1px solid rgba(220, 38, 38, 0.3); }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--canvas); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+/* Print styles */
+@media print {
+  body { background: white; color: black; }
+  .no-print { display: none !important; }
+  .print-break { page-break-before: always; }
+}

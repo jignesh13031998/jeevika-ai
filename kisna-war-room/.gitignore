@@ -1,0 +1,9 @@
+__pycache__/
+*.py[cod]
+.env
+output/analysis_cache.json
+data/*.json
+dashboard/node_modules/
+dashboard/.next/
+dashboard/.env.local
+*.log

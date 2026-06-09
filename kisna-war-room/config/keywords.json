@@ -1,0 +1,275 @@
+{
+  "_comment": "query_templates are applied per-brand. classification_rules map keyword sets to categories. Adjust weights without code changes.",
+  "query_templates": [
+    "{brand} store opening",
+    "{brand} new showroom",
+    "{brand} franchise",
+    "{brand} expansion",
+    "{brand} campaign",
+    "{brand} ambassador",
+    "{brand} collection launch",
+    "{brand} collaboration",
+    "{brand} lab grown diamond",
+    "{brand} offer scheme",
+    "{brand} acquisition",
+    "{brand} funding OR IPO OR QIP",
+    "{brand} results",
+    "{brand} CEO OR leadership",
+    "{brand} GCC OR UAE",
+    "{brand} diamond",
+    "{brand} gold"
+  ],
+  "classification_rules": {
+    "CAMPAIGN_LAUNCH": {
+      "family": "A_BRAND_MARKETING",
+      "include": ["campaign", "ad", "advertisement", "launch campaign", "marketing drive", "brand film", "TVC", "digital campaign", "festive campaign"],
+      "exclude": ["product campaign", "sales campaign"],
+      "base_weight": 70,
+      "cmo_salience_weight": 90,
+      "priority_rank": 1
+    },
+    "CELEBRITY_AMBASSADOR": {
+      "family": "A_BRAND_MARKETING",
+      "include": ["ambassador", "brand ambassador", "celebrity", "endorsement", "endorses", "signed", "face of", "brand face", "spokesperson"],
+      "exclude": [],
+      "base_weight": 75,
+      "cmo_salience_weight": 92,
+      "priority_rank": 1
+    },
+    "BRAND_COLLAB": {
+      "family": "A_BRAND_MARKETING",
+      "include": ["collaboration", "collab", "partnership", "designer", "fashion house", "film collab", "IP licensing", "tie-up", "co-create"],
+      "exclude": ["franchise partnership", "retail partnership"],
+      "base_weight": 65,
+      "cmo_salience_weight": 85,
+      "priority_rank": 2
+    },
+    "EXPERIENTIAL_ACTIVATION": {
+      "family": "A_BRAND_MARKETING",
+      "include": ["pop-up", "event", "activation", "sponsorship", "experiential", "exhibit", "showcase", "fashion week"],
+      "exclude": [],
+      "base_weight": 55,
+      "cmo_salience_weight": 75,
+      "priority_rank": 3
+    },
+    "REPOSITIONING_REBRAND": {
+      "family": "A_BRAND_MARKETING",
+      "include": ["rebrand", "reposition", "new identity", "brand refresh", "logo change", "new tagline", "brand overhaul"],
+      "exclude": [],
+      "base_weight": 80,
+      "cmo_salience_weight": 95,
+      "priority_rank": 1
+    },
+    "COLLECTION_LAUNCH": {
+      "family": "B_PRODUCT_PRICING",
+      "include": ["collection launch", "new collection", "launches collection", "unveiled collection", "introduces collection", "new range", "new line"],
+      "exclude": [],
+      "base_weight": 60,
+      "cmo_salience_weight": 70,
+      "priority_rank": 2
+    },
+    "LAB_GROWN_DIAMOND_MOVE": {
+      "family": "B_PRODUCT_PRICING",
+      "include": ["lab grown diamond", "lab-grown diamond", "LGD", "CVD diamond", "synthetic diamond", "lab diamond", "man made diamond"],
+      "exclude": [],
+      "base_weight": 85,
+      "cmo_salience_weight": 88,
+      "priority_rank": 1
+    },
+    "PRICING_OR_SCHEME": {
+      "family": "B_PRODUCT_PRICING",
+      "include": ["offer", "scheme", "gold savings", "EMI", "making charge waiver", "discount", "price cut", "festive offer", "buyback scheme", "exchange offer"],
+      "exclude": [],
+      "base_weight": 72,
+      "cmo_salience_weight": 80,
+      "priority_rank": 1
+    },
+    "PRODUCT_INNOVATION": {
+      "family": "B_PRODUCT_PRICING",
+      "include": ["innovation", "men's jewellery", "men's jewelry", "kids jewellery", "tech-enabled", "new format", "smart jewellery", "wearable"],
+      "exclude": [],
+      "base_weight": 55,
+      "cmo_salience_weight": 65,
+      "priority_rank": 3
+    },
+    "STORE_OPENING": {
+      "family": "C_RETAIL_EXPANSION",
+      "include": ["store opening", "new store", "new showroom", "inaugurates", "opens store", "new outlet", "flagship launch", "new branch"],
+      "exclude": [],
+      "base_weight": 70,
+      "cmo_salience_weight": 75,
+      "priority_rank": 1
+    },
+    "STORE_CLOSURE": {
+      "family": "C_RETAIL_EXPANSION",
+      "include": ["store closure", "closes store", "shuts showroom", "exits market", "shutting down", "shutdown", "closed stores"],
+      "exclude": [],
+      "base_weight": 80,
+      "cmo_salience_weight": 78,
+      "priority_rank": 1
+    },
+    "FRANCHISE_EXPANSION": {
+      "family": "C_RETAIL_EXPANSION",
+      "include": ["franchise expansion", "franchise growth", "franchisee", "FOCO", "FOFO", "franchise model", "franchise partner", "franchise stores"],
+      "exclude": ["franchise opportunity", "franchise call", "invite franchise"],
+      "base_weight": 75,
+      "cmo_salience_weight": 82,
+      "priority_rank": 1
+    },
+    "FRANCHISE_OPPORTUNITY": {
+      "family": "C_RETAIL_EXPANSION",
+      "include": ["franchise opportunity", "invite franchise", "franchise call", "become a franchisee", "own a franchise", "franchise enquiry", "franchise application"],
+      "exclude": [],
+      "base_weight": 90,
+      "cmo_salience_weight": 95,
+      "priority_rank": 1
+    },
+    "FORMAT_EXPERIMENT": {
+      "family": "C_RETAIL_EXPANSION",
+      "include": ["new store concept", "flagship concept", "shop-in-shop", "studio store", "mini store", "express store", "experience store"],
+      "exclude": [],
+      "base_weight": 60,
+      "cmo_salience_weight": 68,
+      "priority_rank": 2
+    },
+    "GEO_ENTRY": {
+      "family": "C_RETAIL_EXPANSION",
+      "include": ["enters", "forays into", "expands to", "new market", "new state", "new city", "GCC expansion", "UAE expansion", "enters West", "enters North"],
+      "exclude": [],
+      "base_weight": 70,
+      "cmo_salience_weight": 78,
+      "priority_rank": 1
+    },
+    "DIGITAL_DTC_MOVE": {
+      "family": "D_DIGITAL_SOCIAL",
+      "include": ["app launch", "new app", "D2C", "direct to consumer", "e-commerce", "website relaunch", "online store", "digital platform", "omni-channel upgrade"],
+      "exclude": [],
+      "base_weight": 65,
+      "cmo_salience_weight": 70,
+      "priority_rank": 2
+    },
+    "INFLUENCER_CONTENT": {
+      "family": "D_DIGITAL_SOCIAL",
+      "include": ["influencer", "creator", "reels", "Instagram collab", "YouTube campaign", "influencer marketing", "content creator"],
+      "exclude": [],
+      "base_weight": 55,
+      "cmo_salience_weight": 72,
+      "priority_rank": 3
+    },
+    "SOCIAL_VIRALITY": {
+      "family": "D_DIGITAL_SOCIAL",
+      "include": ["viral", "trending", "social media buzz", "reel goes viral", "millions of views", "breaking out", "social media hit"],
+      "exclude": [],
+      "base_weight": 70,
+      "cmo_salience_weight": 85,
+      "priority_rank": 1
+    },
+    "MARKETPLACE_QCOMMERCE": {
+      "family": "D_DIGITAL_SOCIAL",
+      "include": ["Amazon", "Flipkart", "quick commerce", "Blinkit", "Zepto", "marketplace", "online marketplace"],
+      "exclude": [],
+      "base_weight": 60,
+      "cmo_salience_weight": 65,
+      "priority_rank": 2
+    },
+    "ACQUISITION_MNA": {
+      "family": "E_CORPORATE_CAPITAL",
+      "include": ["acquisition", "acquires", "merger", "M&A", "takeover", "buyout", "acquired by", "merges with"],
+      "exclude": [],
+      "base_weight": 85,
+      "cmo_salience_weight": 78,
+      "priority_rank": 1
+    },
+    "FUNDING_IPO_QIP": {
+      "family": "E_CORPORATE_CAPITAL",
+      "include": ["funding", "IPO", "QIP", "fund raise", "investment round", "Series A", "Series B", "raises", "listed", "public issue", "NCD", "rights issue"],
+      "exclude": [],
+      "base_weight": 88,
+      "cmo_salience_weight": 80,
+      "priority_rank": 1
+    },
+    "LEADERSHIP_CHANGE": {
+      "family": "E_CORPORATE_CAPITAL",
+      "include": ["CEO", "MD", "CMO", "CFO", "CTO", "new appointment", "appoints", "steps down", "resigns", "leadership change", "new head", "new chief"],
+      "exclude": [],
+      "base_weight": 75,
+      "cmo_salience_weight": 72,
+      "priority_rank": 2
+    },
+    "PARTNERSHIP_JV": {
+      "family": "E_CORPORATE_CAPITAL",
+      "include": ["joint venture", "JV", "MoU", "strategic alliance", "partnership agreement", "ties up with", "signs agreement"],
+      "exclude": ["franchise partnership", "brand partnership"],
+      "base_weight": 70,
+      "cmo_salience_weight": 68,
+      "priority_rank": 2
+    },
+    "FINANCIAL_RESULTS": {
+      "family": "E_CORPORATE_CAPITAL",
+      "include": ["quarterly results", "annual results", "Q1", "Q2", "Q3", "Q4", "FY", "profit", "revenue", "EBITDA", "net sales", "financial results", "earnings"],
+      "exclude": [],
+      "base_weight": 65,
+      "cmo_salience_weight": 60,
+      "priority_rank": 3
+    },
+    "REGULATORY_LEGAL": {
+      "family": "E_CORPORATE_CAPITAL",
+      "include": ["SEBI", "CCI", "customs", "hallmarking", "BIS", "penalty", "notice", "court order", "regulatory", "compliance", "legal action"],
+      "exclude": [],
+      "base_weight": 78,
+      "cmo_salience_weight": 65,
+      "priority_rank": 2
+    },
+    "SENTIMENT_SHIFT": {
+      "family": "F_CUSTOMER_REPUTATION",
+      "include": ["customer sentiment", "customer feedback", "reviews", "rating drop", "rating rise", "brand perception", "trust"],
+      "exclude": [],
+      "base_weight": 70,
+      "cmo_salience_weight": 88,
+      "priority_rank": 1
+    },
+    "COMPLAINT_CLUSTER": {
+      "family": "F_CUSTOMER_REPUTATION",
+      "include": ["complaint", "consumer complaint", "fraud", "scam", "cheated", "defective", "poor quality", "social media outrage", "backlash", "controversy"],
+      "exclude": [],
+      "base_weight": 82,
+      "cmo_salience_weight": 92,
+      "priority_rank": 1
+    },
+    "AWARD_RECOGNITION": {
+      "family": "F_CUSTOMER_REPUTATION",
+      "include": ["award", "recognition", "wins award", "ranked", "best brand", "certification", "accreditation"],
+      "exclude": [],
+      "base_weight": 50,
+      "cmo_salience_weight": 60,
+      "priority_rank": 4
+    },
+    "CSR_ESG": {
+      "family": "F_CUSTOMER_REPUTATION",
+      "include": ["CSR", "ESG", "sustainability", "responsible sourcing", "carbon neutral", "community initiative", "social responsibility"],
+      "exclude": [],
+      "base_weight": 40,
+      "cmo_salience_weight": 50,
+      "priority_rank": 5
+    },
+    "GENERAL_NEWS": {
+      "family": "GENERAL",
+      "include": [],
+      "exclude": [],
+      "base_weight": 30,
+      "cmo_salience_weight": 35,
+      "priority_rank": 6
+    }
+  },
+  "geo_states": {
+    "west": ["Maharashtra", "Gujarat", "Rajasthan", "Goa"],
+    "north": ["Delhi", "Haryana", "Punjab", "Uttar Pradesh", "Uttarakhand", "Himachal Pradesh", "J&K"],
+    "south": ["Karnataka", "Tamil Nadu", "Kerala", "Andhra Pradesh", "Telangana"],
+    "east": ["West Bengal", "Odisha", "Bihar", "Jharkhand", "Assam"],
+    "central": ["Madhya Pradesh", "Chhattisgarh"],
+    "gcc": ["UAE", "Dubai", "Abu Dhabi", "Sharjah", "Saudi Arabia", "Kuwait", "Bahrain", "Qatar", "Oman"]
+  },
+  "kisna_overlap_states": ["Maharashtra", "Gujarat", "Rajasthan", "Goa", "Delhi", "Haryana", "Punjab", "Karnataka"],
+  "diamond_keywords": ["diamond", "solitaire", "brilliant", "solitaire ring", "diamond necklace", "certified diamond", "natural diamond"],
+  "gold_keywords": ["gold", "gold jewellery", "gold jewelry", "22kt", "18kt", "gold bangle", "gold chain"]
+}

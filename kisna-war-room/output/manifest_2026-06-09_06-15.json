@@ -1,0 +1,25 @@
+{
+  "run_started_at": "2026-06-09T06:15:04.275976+00:00",
+  "mode": "mock",
+  "tier_filter": null,
+  "max_signals": 0,
+  "llm_enabled": false,
+  "competitors": [
+    "Tanishq",
+    "CaratLane",
+    "BlueStone",
+    "Indriya",
+    "Malabar Gold & Diamonds",
+    "Kalyan Jewellers",
+    "Senco Gold",
+    "P N Gadgil Jewellers",
+    "PC Jewellers"
+  ],
+  "sources_swept": [],
+  "items_collected": 25,
+  "items_processed": 25,
+  "items_suppressed": 0,
+  "llm_calls": 0,
+  "errors_tolerated": [],
+  "run_ended_at": "2026-06-09T06:15:04.321195+00:00"
+}

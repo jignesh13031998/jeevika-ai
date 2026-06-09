@@ -1,0 +1,87 @@
+{
+  "_comment": "RSS sources and outlet reliability grading. A=exchange/regulator, B=established business press, C=trade/brand-owned, D=aggregator, E=social/unverified.",
+  "google_news_rss": {
+    "base_url": "https://news.google.com/rss/search",
+    "locales": ["IN", "AE", "SA", "KW", "QA", "BH", "OM"],
+    "language": "en-IN",
+    "lookback_days": 7,
+    "rate_limit_seconds": 2,
+    "max_results_per_query": 20
+  },
+  "outlet_reliability": {
+    "A": [
+      "BSE India", "NSE India", "Securities and Exchange Board of India",
+      "Ministry of Corporate Affairs", "CRISIL", "ICRA", "CARE Ratings",
+      "Reserve Bank of India", "BIS India"
+    ],
+    "B": [
+      "The Economic Times", "Business Standard", "Mint", "Moneycontrol",
+      "BusinessLine", "Reuters", "Bloomberg", "Financial Express",
+      "The Hindu BusinessLine", "CNBC TV18", "NDTV Profit", "Forbes India",
+      "Inc42", "VCCircle", "Entrackr"
+    ],
+    "C": [
+      "Indian Jeweller", "Images Business of Fashion", "Retail4Growth",
+      "Jewellery World", "National Jeweller", "Gems and Jewellery",
+      "Retail Jeweller India", "Gem & Jewellery Export Promotion Council",
+      "LinkedIn", "Instagram", "YouTube", "Facebook",
+      "company website", "press release", "brand blog"
+    ],
+    "D": [
+      "Jagran Josh", "News18", "Zee News", "India TV", "Republic World",
+      "The Print", "The Wire", "Scroll", "The Quint",
+      "Firstpost", "India Today", "Times of India", "Hindustan Times"
+    ],
+    "E": [
+      "Twitter", "X.com", "Reddit", "Quora", "WhatsApp Forward",
+      "Telegram", "unknown blog", "unverified source"
+    ]
+  },
+  "outlet_reliability_lookup": {
+    "economictimes.indiatimes.com": "B",
+    "business-standard.com": "B",
+    "livemint.com": "B",
+    "moneycontrol.com": "B",
+    "thehindubusinessline.com": "B",
+    "reuters.com": "B",
+    "bloomberg.com": "B",
+    "financialexpress.com": "B",
+    "cnbctv18.com": "B",
+    "ndtvprofit.com": "B",
+    "forbesindia.com": "B",
+    "inc42.com": "B",
+    "bseindia.com": "A",
+    "nseindia.com": "A",
+    "mca.gov.in": "A",
+    "sebi.gov.in": "A",
+    "crisil.com": "A",
+    "icra.in": "A",
+    "careratings.com": "A",
+    "indianjeweller.in": "C",
+    "images-business-of-fashion": "C",
+    "retail4growth.com": "C",
+    "linkedin.com": "C",
+    "instagram.com": "C",
+    "youtube.com": "C",
+    "timesofindia.indiatimes.com": "D",
+    "hindustantimes.com": "D",
+    "indiatoday.in": "D",
+    "firstpost.com": "D",
+    "theprint.in": "D"
+  },
+  "exchange_feeds": {
+    "bse_announcements": {
+      "url": "https://www.bseindia.com/xml-data/corpfiling/AttachLive/",
+      "tracked_companies": {
+        "Titan Company": "500114",
+        "BlueStone": "pending_post_ipo",
+        "Kalyan Jewellers": "543278",
+        "Senco Gold": "543573",
+        "P N Gadgil": "544098",
+        "PC Jewellers": "534809"
+      },
+      "cadence_hours": 24,
+      "reliability": "A"
+    }
+  }
+}
