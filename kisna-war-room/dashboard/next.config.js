@@ -1,9 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  env: {
-    CIW_PREFER_LIVE: process.env.CIW_PREFER_LIVE || '0',
-  },
+  output: 'export',       // pure static HTML/CSS/JS — no server needed
+  trailingSlash: true,
+  images: { unoptimized: true },
 }
 
 module.exports = nextConfig

@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import fs from 'fs'
 import path from 'path'
-import { IntelDataset } from '../../lib/types'
+import { IntelDataset } from './types'
 
 const LIVE_PATH = path.join(process.cwd(), '..', 'output', 'signals_enriched.json')
 const BUNDLED_PATH = path.join(process.cwd(), 'public', 'signals_bundled.json')

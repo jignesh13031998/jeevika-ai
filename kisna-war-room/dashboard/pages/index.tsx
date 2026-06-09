@@ -39,7 +39,7 @@ export default function Home() {
   const fetchData = useCallback(async () => {
     setIsRefreshing(true)
     try {
-      const res = await fetch('/api/intel', { cache: 'no-store' })
+      const res = await fetch('/signals_bundled.json', { cache: 'no-store' })
       if (!res.ok) {
         const err = await res.json()
         setError(err.error ?? 'Failed to load data')
