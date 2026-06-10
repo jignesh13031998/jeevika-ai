@@ -1,22 +1,26 @@
-import React, { useEffect, useState, useCallback, useRef } from 'react'
+import React, { useEffect, useState, useCallback } from 'react'
 import Head from 'next/head'
-import { IntelDataset, Signal, Filters } from '../lib/types'
+import { IntelDataset, Filters } from '../lib/types'
 import { applyFilters, getUniqueBrands, getUniqueCategories, getUniqueRegions } from '../lib/filtering'
 import { exportCSV, exportMarkdownBrief, exportPDF } from '../lib/export'
 import { getHeroItems } from '../lib/filtering'
 
-import Header from '../components/Header'
+import Header, { Role } from '../components/Header'
 import Ticker from '../components/Ticker'
 import FilterBar from '../components/FilterBar'
 import ExecBriefing from '../components/ExecBriefing'
 import NewsFeed from '../components/NewsFeed'
+import JewellerBoxes from '../components/JewellerBoxes'
 import StrategicSignals from '../components/StrategicSignals'
 import Timeline from '../components/Timeline'
 import MarketMap from '../components/MarketMap'
 import SocialIntel from '../components/SocialIntel'
 import ImpactBoard from '../components/ImpactBoard'
+import StockTicker from '../components/StockTicker'
+import StockBoard from '../components/StockBoard'
+import BSEAnnouncements from '../components/BSEAnnouncements'
 
-const REFRESH_INTERVAL_MS = 5 * 60 * 1000 // 5 min polling
+const REFRESH_INTERVAL_MS = 5 * 60 * 1000
 
 const DEFAULT_FILTERS: Filters = {
   tier: null,
@@ -27,13 +31,15 @@ const DEFAULT_FILTERS: Filters = {
   period: '7d',
 }
 
+const CFO_ROLES: Role[] = ['CFO', 'CFA', 'Capital_Markets', 'Call_CFO', 'Call_CFA', 'Call_Capital_Market']
+
 export default function Home() {
   const [dataset, setDataset] = useState<IntelDataset | null>(null)
   const [error, setError] = useState<string | null>(null)
   const [isRefreshing, setIsRefreshing] = useState(false)
   const [lastRefresh, setLastRefresh] = useState<string | null>(null)
   const [filters, setFilters] = useState<Filters>(DEFAULT_FILTERS)
-  const [role, setRole] = useState('CMO')
+  const [role, setRole] = useState<Role>('CMO')
   const [activeState, setActiveState] = useState<string | null>(null)
 
   const fetchData = useCallback(async () => {
@@ -49,7 +55,7 @@ export default function Home() {
       setDataset(data)
       setError(null)
       setLastRefresh(new Date().toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' }))
-    } catch (e) {
+    } catch {
       setError('Network error — retrying...')
     } finally {
       setIsRefreshing(false)
@@ -62,7 +68,6 @@ export default function Home() {
     return () => clearInterval(interval)
   }, [fetchData])
 
-  // State filter from map click
   const handleStateClick = (state: string | null) => {
     setActiveState(state)
     setFilters(f => ({ ...f, state, region: null }))
@@ -73,25 +78,25 @@ export default function Home() {
     setActiveState(f.state ?? null)
   }
 
+  const isCFOMode = CFO_ROLES.includes(role)
   const allSignals = dataset?.signals ?? []
   const filtered = applyFilters(allSignals, filters)
-
   const brands = getUniqueBrands(allSignals)
   const categories = getUniqueCategories(allSignals)
   const regions = getUniqueRegions(allSignals)
-
   const heroItems = getHeroItems(filtered)
+  const pageBg = isCFOMode ? '#EEF3FA' : '#F7F2EE'
 
   return (
     <>
       <Head>
-        <title>KISNA CMO War Room</title>
-        <meta name="description" content="KISNA CMO Intelligence Command Center" />
+        <title>KISNA Intelligence Command</title>
+        <meta name="description" content="KISNA Intelligence Command Center — CMO & CFO" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="robots" content="noindex,nofollow" />
       </Head>
 
-      <div className="min-h-screen" style={{ background: '#F7F2EE' }}>
+      <div className="min-h-screen" style={{ background: pageBg }}>
         <Header
           data={dataset}
           lastRefresh={lastRefresh}
@@ -99,6 +104,11 @@ export default function Home() {
           role={role}
           onRoleChange={setRole}
         />
+
+        {/* Live stock ticker strip */}
+        <div style={{ background: isCFOMode ? '#000080' : '#6B1422' }}>
+          <StockTicker theme="dark" />
+        </div>
 
         <Ticker signals={filtered} />
 
@@ -111,7 +121,6 @@ export default function Home() {
           onFilter={handleFilter}
         />
 
-        {/* Error state */}
         {error && (
           <div className="max-w-[1600px] mx-auto px-4 py-4">
             <div className="rounded p-4 text-sm" style={{ background: '#FEE2E2', border: '1px solid #FCA5A5', color: '#991B1B' }}>
@@ -121,66 +130,55 @@ export default function Home() {
           </div>
         )}
 
-        {/* Loading skeleton */}
         {!dataset && !error && (
-          <div className="max-w-[1600px] mx-auto px-4 py-12 text-center text-stone-500">
+          <div className="max-w-[1600px] mx-auto px-4 py-12 text-center">
             <div className="font-display text-2xl animate-pulse" style={{ color: '#C9B8AD' }}>Loading intelligence…</div>
           </div>
         )}
 
         {dataset && (
           <>
-            {/* §1 Executive Briefing — the 3-minute CMO read */}
-            <ExecBriefing signals={filtered} />
+            {/* ── CFO / FINANCIAL ROLES ── */}
+            {isCFOMode && (
+              <>
+                <StockBoard theme="light" />
+                <BSEAnnouncements isDark={false} />
+                <JewellerBoxes signals={filtered} isDark={false} />
+                <ImpactBoard signals={filtered} />
+                <Timeline signals={filtered} />
+              </>
+            )}
 
-            {/* §2 Live Competitor News Feed */}
-            <NewsFeed signals={filtered} />
-
-            {/* §3 Strategic Signals */}
-            <StrategicSignals signals={filtered} />
-
-            {/* §4 Timeline */}
-            <Timeline signals={filtered} />
-
-            {/* §5 Market Map */}
-            <MarketMap
-              signals={filtered}
-              onStateClick={handleStateClick}
-              activeState={activeState}
-            />
-
-            {/* §6 Social & Digital Intelligence */}
-            <SocialIntel signals={filtered} />
-
-            {/* §7 Executive Impact Analysis — print-ready */}
-            <ImpactBoard signals={filtered} />
+            {/* ── CMO ROLE ── */}
+            {!isCFOMode && (
+              <>
+                <ExecBriefing signals={filtered} />
+                <NewsFeed signals={filtered} />
+                <JewellerBoxes signals={filtered} />
+                <StrategicSignals signals={filtered} />
+                <Timeline signals={filtered} />
+                <MarketMap signals={filtered} onStateClick={handleStateClick} activeState={activeState} />
+                <SocialIntel signals={filtered} />
+                <ImpactBoard signals={filtered} />
+              </>
+            )}
 
             {/* Export bar */}
             <div className="max-w-[1600px] mx-auto px-4 py-6 no-print">
-              <div className="flex items-center gap-3 flex-wrap border-t border-border pt-6">
+              <div className="flex items-center gap-3 flex-wrap border-t pt-6" style={{ borderColor: '#D1C4BC' }}>
                 <span className="text-xs text-stone-500">Export:</span>
-                <button
-                  onClick={() => exportCSV(filtered)}
-                  className="text-xs px-3 py-1.5 border border-border rounded hover:border-accent-secondary text-stone-400 hover:text-stone-200 transition-colors"
-                >
-                  CSV
-                </button>
-                <button
-                  onClick={() => exportMarkdownBrief(filtered, heroItems)}
-                  className="text-xs px-3 py-1.5 border border-border rounded hover:border-accent-secondary text-stone-400 hover:text-stone-200 transition-colors"
-                >
-                  Markdown Brief
-                </button>
-                <button
-                  onClick={exportPDF}
-                  className="text-xs px-3 py-1.5 border border-border rounded hover:border-accent-secondary text-stone-400 hover:text-stone-200 transition-colors"
-                >
-                  Print / PDF
-                </button>
+                <button onClick={() => exportCSV(filtered)}
+                  className="text-xs px-3 py-1.5 border rounded text-stone-500 hover:text-stone-700 transition-colors"
+                  style={{ borderColor: '#D1C4BC' }}>CSV</button>
+                <button onClick={() => exportMarkdownBrief(filtered, heroItems)}
+                  className="text-xs px-3 py-1.5 border rounded text-stone-500 hover:text-stone-700 transition-colors"
+                  style={{ borderColor: '#D1C4BC' }}>Markdown Brief</button>
+                <button onClick={exportPDF}
+                  className="text-xs px-3 py-1.5 border rounded text-stone-500 hover:text-stone-700 transition-colors"
+                  style={{ borderColor: '#D1C4BC' }}>Print / PDF</button>
                 {dataset.generated_at && (
-                  <span className="ml-auto text-[10px] text-stone-600">
-                    Dataset: {new Date(dataset.generated_at).toLocaleString('en-IN')} ·{' '}
-                    {filtered.length} signals shown
+                  <span className="ml-auto text-[10px] text-stone-400">
+                    Dataset: {new Date(dataset.generated_at).toLocaleString('en-IN')} · {filtered.length} signals shown
                   </span>
                 )}
               </div>
