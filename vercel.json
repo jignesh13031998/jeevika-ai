@@ -1,0 +1,5 @@
+{
+  "buildCommand": "cd kisna-war-room/dashboard && npm install && npm run build",
+  "outputDirectory": "kisna-war-room/dashboard/out",
+  "installCommand": "echo skip-root-install"
+}

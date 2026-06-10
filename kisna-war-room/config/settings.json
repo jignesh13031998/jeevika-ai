@@ -1,0 +1,82 @@
+{
+  "_comment": "All thresholds, gates, modes, and caps. Change here — no code edits needed.",
+  "rolling_window_days": 7,
+  "freshness_bands": {
+    "NEW_hours": 24,
+    "FRESH_hours": 72,
+    "RECENT_days": 7
+  },
+  "scoring": {
+    "composite_weights": {
+      "threat": 0.35,
+      "opportunity": 0.20,
+      "cmo_salience": 0.30,
+      "confidence": 0.15
+    },
+    "priority_bands": {
+      "HIGH_min": 70,
+      "MEDIUM_min": 45
+    },
+    "tier_multipliers": {
+      "1": 1.0,
+      "2": 0.75,
+      "3": 0.50
+    },
+    "geo_overlap_boost": 1.25,
+    "segment_overlap_boost": 1.15,
+    "recency_decay": {
+      "NEW": 1.0,
+      "FRESH": 0.85,
+      "RECENT": 0.65
+    },
+    "pr_deflation_factor": 0.6
+  },
+  "alert_gates": {
+    "THREAT_ALERT": {
+      "threat_min": 75,
+      "confidence_min": 60
+    },
+    "OPPORTUNITY_ALERT": {
+      "opportunity_min": 70,
+      "confidence_min": 55
+    },
+    "MILESTONE_WATCH": {
+      "composite_min": 55
+    }
+  },
+  "hero_briefing": {
+    "max_items": 7,
+    "min_items": 5,
+    "watch_indicators": 3,
+    "action_of_day": 1,
+    "max_items_per_competitor": 2
+  },
+  "deduplication": {
+    "similarity_threshold": 0.85,
+    "time_window_hours": 24,
+    "min_corroboration_for_hero": 1
+  },
+  "analysis": {
+    "mode": "rules",
+    "llm_bands": ["HIGH", "MEDIUM"],
+    "max_llm_calls_per_run": 30,
+    "llm_temperature": 0.1,
+    "llm_max_tokens": 400,
+    "cache_analysis": true
+  },
+  "blink": {
+    "enabled": true,
+    "freshness": "NEW",
+    "priority_band": "HIGH",
+    "animation_duration_seconds": 1.2
+  },
+  "logging": {
+    "level": "INFO",
+    "structured": true,
+    "manifest_enabled": true
+  },
+  "mock": {
+    "seed_items": 25,
+    "brands_subset": null
+  }
+}
