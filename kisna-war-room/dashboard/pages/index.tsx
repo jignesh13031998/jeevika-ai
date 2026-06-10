@@ -20,11 +20,19 @@ import MarketMap from '../components/MarketMap'
 import SocialIntel from '../components/SocialIntel'
 import ImpactBoard from '../components/ImpactBoard'
 
+import Watchlist from '../components/Watchlist'
+import ActionEngine from '../components/ActionEngine'
+import ThreatOpportunityEngine from '../components/ThreatOpportunityEngine'
+import LGDWarRoom from '../components/LGDWarRoom'
+import IndustryNews from '../components/IndustryNews'
+
 // CFO components
 import CFODashboard from '../components/CFODashboard'
+import MAWatch from '../components/MAWatch'
 
 // Franchise components
 import FranchiseMode from '../components/FranchiseMode'
+import StoreExpansionTracker from '../components/StoreExpansionTracker'
 
 const REFRESH_INTERVAL_MS = 5 * 60 * 1000
 
@@ -135,13 +143,17 @@ export default function Home() {
             {/* ── CMO ── */}
             {role === 'CMO' && (
               <>
+                <Watchlist />
                 <ExecBriefing signals={filtered} />
+                <ThreatOpportunityEngine signals={filtered} />
+                <ActionEngine signals={filtered} />
                 <NewsFeed signals={filtered} />
                 <JewellerBoxes signals={filtered} />
-                <StrategicSignals signals={filtered} />
+                <LGDWarRoom />
                 <Timeline signals={filtered} />
                 <MarketMap signals={filtered} onStateClick={handleStateClick} activeState={activeState} />
                 <SocialIntel signals={filtered} />
+                <IndustryNews />
                 <ImpactBoard signals={filtered} />
               </>
             )}
@@ -150,6 +162,7 @@ export default function Home() {
             {role === 'CFO' && (
               <>
                 <CFODashboard />
+                <MAWatch />
                 <JewellerBoxes signals={filtered} isDark={false} />
                 <ImpactBoard signals={filtered} />
               </>
@@ -157,7 +170,10 @@ export default function Home() {
 
             {/* ── Franchise ── */}
             {role === 'Franchise' && (
-              <FranchiseMode signals={filtered} />
+              <>
+                <StoreExpansionTracker />
+                <FranchiseMode signals={filtered} />
+              </>
             )}
 
             {/* Export bar */}
