@@ -1,26 +1,12 @@
 import React from 'react'
 import { IntelDataset } from '../lib/types'
 
-export type Role = 'CMO' | 'CFO' | 'CFA' | 'Capital_Markets' | 'Call_CFO' | 'Call_CFA' | 'Call_Capital_Market'
-
-const ROLES: { value: Role; label: string; group: string }[] = [
-  { value: 'CMO',               label: '🔴 CMO — Marketing Command',       group: 'Executive' },
-  { value: 'CFO',               label: '🔵 CFO — Financial Control',        group: 'Executive' },
-  { value: 'CFA',               label: '📊 CFA — Investment Analysis',      group: 'Analysis' },
-  { value: 'Capital_Markets',   label: '📈 Capital Markets',                group: 'Analysis' },
-  { value: 'Call_CFO',          label: '📞 Briefing: CFO',                  group: 'Briefings' },
-  { value: 'Call_CFA',          label: '📞 Briefing: CFA',                  group: 'Briefings' },
-  { value: 'Call_Capital_Market', label: '📞 Briefing: Capital Market',     group: 'Briefings' },
-]
+export type Role = 'CMO' | 'CFO' | 'Franchise'
 
 const ROLE_THEME: Record<Role, { bg: string; accent: string; label: string }> = {
-  CMO:                { bg: '#8E1B2E', accent: '#E8C98A', label: 'CMO Intelligence War Room' },
-  CFO:                { bg: '#000080', accent: '#A8C4E8', label: 'CFO Financial Command Center' },
-  CFA:                { bg: '#0A2342', accent: '#7BAAEE', label: 'CFA Investment Analysis Suite' },
-  Capital_Markets:    { bg: '#0F3D2E', accent: '#5EC97F', label: 'Capital Markets Intelligence' },
-  Call_CFO:           { bg: '#1A0050', accent: '#C4A8F0', label: 'CFO Briefing Mode' },
-  Call_CFA:           { bg: '#002040', accent: '#90C8F8', label: 'CFA Briefing Mode' },
-  Call_Capital_Market:{ bg: '#003020', accent: '#80E8B0', label: 'Capital Market Briefing' },
+  CMO:       { bg: '#8E1B2E', accent: '#E8C98A', label: 'CMO Intelligence War Room' },
+  CFO:       { bg: '#000080', accent: '#A8C4E8', label: 'CFO Financial Command Center' },
+  Franchise: { bg: '#1A5C2A', accent: '#90E8A0', label: 'Franchise Intelligence Hub' },
 }
 
 interface Props {
@@ -66,33 +52,27 @@ export default function Header({ data, lastRefresh, isRefreshing, role, onRoleCh
             </div>
           )}
 
-          {/* Right controls */}
+          {/* Role switcher + refresh */}
           <div className="flex items-center gap-3">
             <div className="flex items-center gap-2 text-xs text-white/70">
-              <span
-                className={`w-2 h-2 rounded-full ${isRefreshing ? 'dot-new' : ''}`}
-                style={{ background: isRefreshing ? '#FFD700' : 'rgba(255,255,255,0.4)' }}
-              />
+              <span className={`w-2 h-2 rounded-full ${isRefreshing ? 'dot-new' : ''}`}
+                style={{ background: isRefreshing ? '#FFD700' : 'rgba(255,255,255,0.4)' }} />
               {isRefreshing ? 'Refreshing…' : lastRefresh ? `Updated ${lastRefresh}` : 'Loading…'}
             </div>
             <select
               value={role}
               onChange={e => onRoleChange(e.target.value as Role)}
-              className="text-xs rounded px-2 py-1 focus:outline-none border-0 font-semibold"
-              style={{ background: 'rgba(255,255,255,0.15)', color: 'white', minWidth: '200px' }}
+              className="text-sm rounded px-3 py-1.5 focus:outline-none border-0 font-bold"
+              style={{ background: 'rgba(255,255,255,0.2)', color: 'white', minWidth: '160px' }}
             >
-              {ROLES.map(r => (
-                <option key={r.value} value={r.value} style={{ color: '#1A0A0D', background: 'white' }}>
-                  {r.label}
-                </option>
-              ))}
+              <option value="CMO"       style={{ color: '#1A0A0D', background: 'white' }}>🔴 CMO View</option>
+              <option value="CFO"       style={{ color: '#1A0A0D', background: 'white' }}>🔵 CFO View</option>
+              <option value="Franchise" style={{ color: '#1A0A0D', background: 'white' }}>🟢 Franchise View</option>
             </select>
           </div>
         </div>
       </div>
-
-      {/* Role indicator strip */}
-      <div className="h-0.5" style={{ background: theme.accent, opacity: 0.6 }} />
+      <div className="h-0.5" style={{ background: theme.accent, opacity: 0.5 }} />
     </header>
   )
 }
